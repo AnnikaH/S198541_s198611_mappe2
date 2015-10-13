@@ -28,15 +28,15 @@ public class ContactsActivity extends AppCompatActivity implements SearchView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        //db = new DBHandler(this);
+        /*db = new DBHandler(this);
 
-        /*Log.d("Legg inn: ", "legger til kontakter");
+        Log.d("Legg inn: ", "legger til kontakter");
 
-        String dateString = "1988-07-07";
+        String dateString = "1989-06-07";
         //Date date = Date.valueOf(dateString);
 
         // Oppretter en kontakt uten noen melding for Ã¥ teste:
-        db.addPerson(new Person("Annika", "90826715", dateString));*/
+        db.addPerson(new Person("Pernille", "41234567", dateString));*/
 
 
 //        List<Person> persons = db.getAllPersons();
