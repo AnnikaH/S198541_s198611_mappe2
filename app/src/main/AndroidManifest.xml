@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.s198541_s198611_mappe2" >
+
+    <uses-permission android:name="com.example.s198541_s198611_mappe2.permission" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <permission android:name="com.example.s198541_s198611_mappe2.permission" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".BirthdayServiceMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".NewMessageActivity"
+            android:label="@string/new_message"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+
+        </activity>
+
+        <activity android:name=".ContactsActivity"
+            android:label="@string/friends"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+
+        </activity>
+
+        <activity android:name=".BirthdaysActivity"
+            android:label="@string/birthdays"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+
+        </activity>
+
+        <activity android:name=".ResultOfNotificationActivity"
+            android:label="@string/result_class_title"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+
+        </activity>
+
+        <activity android:name=".NewContactActivity"
+            android:label="@string/new_friend"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+
+        </activity>
+
+        <service android:name=".MyService">
+        </service>
+
+        <service android:name=".SetService">
+        </service>
+
+        <receiver android:name="MyBroadcastReceiver">
+            <intent-filter>
+                <action
+                    android:name="com.example.s198541_s198611_mappe2.myBroadcast"/>
+
+                <!-- KAN KALLE DENNE (NAME) AKKURAT DET JEG VIL! MÃƒâ€¦ BARE STEMME
+                 OVERENS MED NAVNET I HOVEDKLASSEN (ServiceActivity) -->
+
+            </intent-filter>
+        </receiver>
+
+        <provider android:name="com.example.s198541_s198611_mappe2.PersonCP"
+            android:authorities="com.example.s198541_s198611_mappe2"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.example.s198541_s198611_mappe2.permission"
+            android:writePermission="com.example.s198541_s198611_mappe2.permission">
+
+        </provider>
+
+    </application>
+
+</manifest>

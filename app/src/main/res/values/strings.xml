@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Birthday Service</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="text_search_field">Search..</string>
+
+    <string name="friends">Friends</string>
+    <string name="new_message">New message</string>
+    <string name="birthdays">Birthdays</string>
+
+    <string name="in_result_class">You are in ResultOfNotificationActivity</string>
+    <string name="notification_title">Title</string>
+    <string name="notification_message">Message</string>
+    <string name="result_class_title">Result class title</string>
+    <string name="new_friend">New friend</string>
+    <string name="setTime">Set time for sending messages ></string>
+
+    <string name="labelName">Name:</string>
+    <string name="labelBirthday">Birthday:</string>
+</resources>

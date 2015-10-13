@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bursdagstjenesten</string>
+
+    <string name="action_settings">Innstillinger</string>
+
+    <string name="text_search_field">Søk..</string>
+
+    <string name="friends">Venner</string>
+    <string name="new_message">Ny melding</string>
+    <string name="birthdays">Bursdager</string>
+
+    <string name="in_result_class">Du er i ResultOfNotificationActivity</string>
+    <string name="notification_title">Tittel</string>
+    <string name="notification_message">Melding</string>
+    <string name="result_class_title">Resultat-klasse-tittel</string>
+    <string name="new_friend">Ny venn</string>
+    <string name="setTime">Sett tid for avsending ></string>
+
+
+    <string name="labelName">Navn:</string>
+    <string name="labelBirthday">Bursdag:</string>
+</resources>
