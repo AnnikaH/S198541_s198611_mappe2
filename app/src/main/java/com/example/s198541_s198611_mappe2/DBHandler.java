@@ -13,13 +13,13 @@ import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
     static String TABLE_PERSONS = "Person";
-    static String KEY_ID = "_ID";
+    static String KEY_ID = "_id";
     static String KEY_NAME = "Name";
     static String KEY_PH_NO = "PhoneNumber";
     static String KEY_BIRTHDAY = "Birthday";
     static String KEY_MESSAGE = "Message";
     static int DATABASE_VERSION = 1;
-    static String DATABASE_NAME = "birthdayDatabase.db";
+    static String DATABASE_NAME = "birthdayServiceDatabase.db";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

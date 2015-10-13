@@ -7,7 +7,7 @@ import java.sql.Date;
 // Database-class Person:
 
 public class Person {
-    private int _ID;
+    private int _id;
     private String Name;
     private String PhoneNumber;
     private String Birthday;
@@ -28,8 +28,8 @@ public class Person {
         Log.d("BIRTDAY CONSTR AFTER: ", "" + Birthday);
     }
 
-    public Person(int _id, String name, String phoneNumber, String birthday) {
-        _ID = _id;
+    public Person(int id, String name, String phoneNumber, String birthday) {
+        _id = id;
         Name = name;
         PhoneNumber = phoneNumber;
         Birthday = birthday;
@@ -42,8 +42,8 @@ public class Person {
         Message = message;
     }
 
-    public Person(int _id, String name, String phoneNumber, String birthday, String message) {
-        _ID = _id;
+    public Person(int id, String name, String phoneNumber, String birthday, String message) {
+        _id = id;
         Name = name;
         PhoneNumber = phoneNumber;
 
@@ -55,8 +55,8 @@ public class Person {
         Log.d("BIRTDAY CONSTR AFTER: ", "" + Birthday);
     }
 
-    public void set_ID(int _id) {
-        _ID = _id;
+    public void set_ID(int id) {
+        _id = id;
     }
 
     public void setName(String name) {
@@ -76,7 +76,7 @@ public class Person {
     }
 
     public int get_ID() {
-        return _ID;
+        return _id;
     }
 
     public String getName() {
