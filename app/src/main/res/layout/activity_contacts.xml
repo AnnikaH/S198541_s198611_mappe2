@@ -4,17 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_container"
-    tools:context=".ContactsActivity" >
+    tools:context=".ContactsActivity"
+    android:background="@color/background_color" >
 
     <!-- SearchView -->
     <SearchView
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/search_view_width"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
-        android:padding="2dp"
         android:queryHint="@string/text_search_field" />
     <!-- android:background="@drawable/search_view_border" -->
+
+    <!--android:padding="@dimen/search_view_padding"-->
+
+    <Button
+        android:text="@string/plus"
+        android:layout_width="@dimen/add_button_width"
+        android:layout_height="@dimen/list_view_padding_top"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/add_button_padding_top"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:textColor="@android:color/black"
+        android:onClick="goToAddNewContact" />
 
 </FrameLayout>
 

@@ -1,9 +1,15 @@
 package com.example.s198541_s198611_mappe2;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 // You get to this class when you have clicked on Contacts in the main menu and then the + to the
 // right of the search field on top of the ContactsActivity
@@ -12,10 +18,44 @@ import android.view.MenuItem;
 
 public class NewContactActivity extends AppCompatActivity {
 
+    DBHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
+
+        dbHandler = new DBHandler(this);
+
+        //EditText editTextName = (EditText) findViewById(R.id.name);
+//        int idText = editTextName.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+//        TextView editText = (TextView) editTextName.findViewById(idText);
+//        editText.setTextColor(Color.WHITE);
+    }
+
+    // OnClick add-button:
+    public void addContact(View view) {
+        EditText editTextName = (EditText) findViewById(R.id.name);
+        EditText editTextPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        DatePicker datePickerBirthday = (DatePicker) findViewById(R.id.birthday);
+        EditText editTextMessage = (EditText) findViewById(R.id.message);
+
+        String name = editTextName.getText().toString();
+        String phoneNumber = editTextPhoneNumber.getText().toString();
+        int year = datePickerBirthday.getYear();
+        int month = datePickerBirthday.getMonth();
+        int day = datePickerBirthday.getDayOfMonth();
+        String birthday = year + "-" + month + "-" + day;
+        String message = editTextMessage.getText().toString();
+
+        // TODO: Validering av input
+
+        Person person = new Person(name, phoneNumber, birthday, message);
+        dbHandler.addPerson(person);
+
+        Toast.makeText(this, name + " " + getString(R.string.person_added_message), Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 
     @Override

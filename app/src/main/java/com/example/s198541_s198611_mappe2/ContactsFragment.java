@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 // import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
@@ -13,21 +14,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
+        SearchView.OnQueryTextListener {
 
     LoaderManager loaderManager;
     CursorLoader cursorLoader;
     SimpleCursorAdapter mAdapter;
     DBHandler dbHandler;
     String TAG = "LOADER";
+    SearchView searchView;
 
     public ContactsFragment() {
 
@@ -47,7 +52,7 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
 
         dbHandler = new DBHandler(getActivity().getBaseContext());
 
-        List<Person> persons = dbHandler.getAllPersons();
+        // List<Person> persons = dbHandler.getAllPersons();
 
         /*String[] personNameArray = new String[persons.size()];
 
@@ -62,7 +67,7 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         }*/
 
         //String[] uiBindFrom = {ContactsContract.Contacts.DISPLAY_NAME};
-        String[] uiBindFrom = { DBHandler.KEY_NAME }; // TODO: ADD DBHandler.KEY_BIRTHDAY ?
+        String[] uiBindFrom = { DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY }; // TODO: ADD DBHandler.KEY_BIRTHDAY ?
 
         int[] uiBindTo = { android.R.id.text1 };
 
@@ -77,6 +82,14 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
                         .show();
             }
         });
+
+        searchView = (SearchView) getActivity().findViewById(R.id.search_view);
+        int idSearchViewInputText = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView searchViewText = (TextView) searchView.findViewById(idSearchViewInputText);
+        searchViewText.setHintTextColor(Color.WHITE);
+        searchViewText.setTextColor(Color.WHITE);
+
+        searchView.setOnQueryTextListener(this);
 
         loaderManager.initLoader(0, null, this);    // 0 er id'en
     }
@@ -107,6 +120,17 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
             mAdapter.swapCursor(null);
         else
             Log.v(TAG, "OnLoadFinished: mAdapter is null");
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        mAdapter.getFilter().filter(newText);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
     }
 
 /*

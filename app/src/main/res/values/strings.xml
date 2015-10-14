@@ -1,4 +1,6 @@
 <resources>
+    <string name="plus">+</string>
+
     <string name="app_name">Birthday Service</string>
 
     <string name="action_settings">Settings</string>
@@ -13,9 +15,14 @@
     <string name="notification_title">Title</string>
     <string name="notification_message">Message</string>
     <string name="result_class_title">Result class title</string>
-    <string name="new_friend">New friend</string>
-    <string name="setTime">Set time for sending messages ></string>
+    <string name="new_friend">Add a new friend</string>
+    <string name="set_time">Set time for sending messages ></string>
 
-    <string name="labelName">Name:</string>
-    <string name="labelBirthday">Birthday:</string>
+    <string name="label_name">Name:</string>
+    <string name="label_birthday">Birthday:</string>
+    <string name="label_phone_number">Phone number:</string>
+    <string name="label_message">Message:</string>
+    <string name="add">Add</string>
+
+    <string name="person_added_message">was added!</string>
 </resources>

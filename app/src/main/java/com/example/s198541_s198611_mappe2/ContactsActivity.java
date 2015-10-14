@@ -1,10 +1,12 @@
 package com.example.s198541_s198611_mappe2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -14,14 +16,16 @@ import java.util.List;
 // Activity where you can see all the contacts and add new ones (a +-field up in the corner to the
 // right of the search field
 
-public class ContactsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class ContactsActivity extends AppCompatActivity {
+
+    //implements SearchView.OnQueryTextListener
 
     //DBHandler db;
 
-    SearchView search_view;
-    // ListView list_view;
+    // SearchView search_view;
+    //ListView list_view;
 
-    ArrayAdapter<String> adapter;
+    //ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,23 +73,30 @@ public class ContactsActivity extends AppCompatActivity implements SearchView.On
 
 
         //list_view = (ListView) findViewById(R.id.list_view);
-        search_view = (SearchView) findViewById(R.id.search_view);
 
         //adapter = new ArrayAdapter<>(this, R.layout.list, R.id.name, personNameArray);
         //list_view.setAdapter(adapter);
 
-        search_view.setOnQueryTextListener(this);
+//        search_view = (SearchView) findViewById(R.id.search_view);
+//        search_view.setOnQueryTextListener(this);
     }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        adapter.getFilter().filter(newText);
-        return false;
-    }
+//    @Override
+//    public boolean onQueryTextChange(String newText) {
+//        adapter.getFilter().filter(newText);
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean onQueryTextSubmit(String query) {
+//        return false;
+//    }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
+    // Add-button clicked:
+    public void goToAddNewContact(View view) {
+        Intent i = new Intent(this, NewContactActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override

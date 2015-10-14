@@ -24,7 +24,9 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
 
         Switch serviceSwitch = (Switch) findViewById(R.id.startStopServiceSwitch);
 
+        // TODO: SetChecked to whatever the user last chose:
         serviceSwitch.setChecked(false);
+
         serviceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
