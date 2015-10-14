@@ -1,5 +1,6 @@
 package com.example.s198541_s198611_mappe2;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -55,7 +56,9 @@ public class NewContactActivity extends AppCompatActivity {
 
         Toast.makeText(this, name + " " + getString(R.string.person_added_message), Toast.LENGTH_SHORT).show();
 
-        //finish();
+        Intent i = new Intent(this, ContactsActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override
