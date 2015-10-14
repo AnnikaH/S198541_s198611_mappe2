@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+// When clicking on/selecting a contact in the ContactsActivity
+
 public class EditContactActivity extends AppCompatActivity {
 
     @Override
