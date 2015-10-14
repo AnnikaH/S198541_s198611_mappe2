@@ -55,7 +55,7 @@ public class NewContactActivity extends AppCompatActivity {
 
         Toast.makeText(this, name + " " + getString(R.string.person_added_message), Toast.LENGTH_SHORT).show();
 
-        finish();
+        //finish();
     }
 
     @Override
