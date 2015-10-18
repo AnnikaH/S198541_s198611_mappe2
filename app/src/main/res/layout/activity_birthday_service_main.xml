@@ -43,8 +43,9 @@
             android:layout_width="@dimen/front_button_width"
             android:layout_height="@dimen/front_button_height"
             android:layout_margin="@dimen/front_button_margin"
-            android:background="@color/message_button_color"
-            android:onClick="goToNewMessage" />
+            android:background="@drawable/message_icon"
+            android:onClick="goToNewMessage"
+            />
 
         <Button
             android:id="@+id/contactsButton"
