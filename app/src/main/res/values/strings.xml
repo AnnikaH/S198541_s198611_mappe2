@@ -2,6 +2,7 @@
     <string name="plus">+</string>
 
     <string name="app_name">Birthday Service</string>
+    <string name="on_off_switch">Turn app on or off:</string>
 
     <string name="action_settings">Settings</string>
 

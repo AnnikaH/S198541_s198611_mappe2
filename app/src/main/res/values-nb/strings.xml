@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Bursdagstjenesten</string>
-
+    <string name="on_off_switch">Skru appen av eller på:</string>
     <string name="action_settings">Innstillinger</string>
 
     <string name="text_search_field">Søk..</string>
