@@ -36,4 +36,10 @@
     <string name="choose_receiver">To</string>
     <string name="save">Save</string>
     <string name="choose_receiver_head">Choose Friend</string>
+
+    <!-- Validation messages Add new friend -->
+    <string name="name_error_message">Name must be filled in!</string>
+    <string name="phone_error_message">Phone number must be at least 8 digits!</string>
+    <string name="message_error_message">The message cannot be empty!</string>
+
 </resources>

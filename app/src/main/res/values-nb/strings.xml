@@ -36,4 +36,10 @@
     <string name="choose_receiver">Til</string>
     <string name="save">Lagre</string>
     <string name="choose_receiver_head">Velg venn</string>
+
+    <!-- Validation messages Add new friend -->
+    <string name="name_error_message">Navn må fylles inn!</string>
+    <string name="phone_error_message">Telefonnr må være minst 8 siffer!</string>
+    <string name="message_error_message">Meldingen kan ikke være tom!</string>
+
 </resources>

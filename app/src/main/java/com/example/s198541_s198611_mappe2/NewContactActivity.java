@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,6 +45,8 @@ public class NewContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_contact);
 
         dbHandler = new DBHandler(this);
+
+
     }
 
     // OnClick add-button:
@@ -60,7 +64,21 @@ public class NewContactActivity extends AppCompatActivity {
         String birthday = year + "-" + month + "-" + day;
         String message = editTextMessage.getText().toString();
 
-        // TODO: Validering av input
+        // Validation of input:
+        if(!name.matches("[a-zæøåA-ZÆØÅ0-9_ ]+")) {
+            editTextName.setError(getString(R.string.name_error_message));
+            return;
+        }
+
+        if(!phoneNumber.matches("[0-9]{8,}")) {
+            editTextPhoneNumber.setError(getString(R.string.phone_error_message));
+            return;
+        }
+
+        if(!message.matches(".+")) {
+            editTextMessage.setError(getString(R.string.message_error_message));
+            return;
+        }
 
         Person person = new Person(name, phoneNumber, birthday, message);
         dbHandler.addPerson(person);
