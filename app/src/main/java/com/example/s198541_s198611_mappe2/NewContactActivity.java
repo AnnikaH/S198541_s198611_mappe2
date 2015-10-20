@@ -22,7 +22,7 @@ public class NewContactActivity extends AppCompatActivity {
     DBHandler dbHandler;
     String storedDefaultMessage;
 
-    // Get values from SharedPreferences:
+    // Get values from SharedPreferences (defaultMessage):
     @Override
     protected void onResume() {
         super.onResume();
@@ -43,11 +43,6 @@ public class NewContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_contact);
 
         dbHandler = new DBHandler(this);
-
-        //EditText editTextName = (EditText) findViewById(R.id.name);
-//        int idText = editTextName.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-//        TextView editText = (TextView) editTextName.findViewById(idText);
-//        editText.setTextColor(Color.WHITE);
     }
 
     // OnClick add-button:
