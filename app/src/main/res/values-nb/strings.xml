@@ -2,13 +2,15 @@
 <resources>
     <string name="app_name">Bursdagstjenesten</string>
     <string name="on_off_switch">Skru appen av eller på:</string>
-    <string name="action_settings">Innstillinger</string>
+    <string name="settings">Innstillinger</string>
 
     <string name="text_search_field">Søk..</string>
 
     <string name="friends">Venner</string>
     <string name="edit_message">Endre melding</string>
     <string name="birthdays">Bursdager</string>
+
+    <string name="edit_friend">Endre venn</string>
 
     <string name="in_result_class">Du er i ResultOfNotificationActivity</string>
     <string name="notification_title">Tittel</string>

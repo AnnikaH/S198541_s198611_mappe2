@@ -27,35 +27,41 @@
         <activity android:name=".NewMessageActivity"
             android:label="@string/edit_message"
             android:parentActivityName=".BirthdayServiceMainActivity" >
-
         </activity>
 
         <activity android:name=".ContactsActivity"
             android:label="@string/friends"
             android:parentActivityName=".BirthdayServiceMainActivity" >
-
         </activity>
 
         <activity android:name=".ChooseContactActivity"
             android:label="@string/choose_receiver_head"
-            android:parentActivityName=".NewMessageActivity"></activity>
+            android:parentActivityName=".NewMessageActivity" >
+        </activity>
 
         <activity android:name=".BirthdaysActivity"
             android:label="@string/birthdays"
             android:parentActivityName=".BirthdayServiceMainActivity" >
-
         </activity>
 
         <activity android:name=".ResultOfNotificationActivity"
             android:label="@string/result_class_title"
-            android:parentActivityName=".BirthdayServiceMainActivity" />
-
-
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+        </activity>
 
         <activity android:name=".NewContactActivity"
             android:label="@string/new_friend"
             android:parentActivityName=".BirthdayServiceMainActivity" >
+        </activity>
 
+        <activity android:name=".EditContactActivity"
+            android:label="@string/edit_friend"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
+        </activity>
+
+        <activity android:name=".SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".BirthdayServiceMainActivity" >
         </activity>
 
         <service android:name=".MyService">

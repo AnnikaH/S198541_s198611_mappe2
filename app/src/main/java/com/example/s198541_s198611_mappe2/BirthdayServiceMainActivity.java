@@ -71,7 +71,8 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
 
     // OnClick settingsButton
     public void goToSettings(View view) {
-
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
     }
 
     @Override

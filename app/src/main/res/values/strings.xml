@@ -3,14 +3,15 @@
 
     <string name="app_name">Birthday Service</string>
     <string name="on_off_switch">Turn app on or off:</string>
-
-    <string name="action_settings">Settings</string>
+    <string name="settings">Settings</string>
 
     <string name="text_search_field">Search..</string>
 
     <string name="friends">Friends</string>
     <string name="edit_message">Edit message</string>
     <string name="birthdays">Birthdays</string>
+
+    <string name="edit_friend">Edit friend</string>
 
     <string name="in_result_class">You are in ResultOfNotificationActivity</string>
     <string name="notification_title">Title</string>
