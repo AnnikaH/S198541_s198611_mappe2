@@ -10,7 +10,7 @@ public class BirthdaysActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_birthday_service_main);
+        setContentView(R.layout.activity_birthday_list);
     }
 
     @Override
@@ -28,9 +28,9 @@ public class BirthdaysActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+      /*  if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
