@@ -1,5 +1,6 @@
 package com.example.s198541_s198611_mappe2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -18,6 +19,9 @@ public class NewMessageActivity extends AppCompatActivity{
     public void OpenContact(View v)
     {
         /*  Insert method to open select contact activity */
+        Intent i = new Intent(this, ChooseContactActivity.class);
+        startActivity(i);
+        finish();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
