@@ -3,7 +3,110 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- much of the same fields as in activity_new_contact.xml -->
-    <!-- editing an existing contact -->
+    <!-- Much of the same fields as in activity_new_contact.xml -->
+    <!-- Editing an existing contact -->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".EditContactActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background_color"
+        android:padding="@dimen/activity_horizontal_margin" >
+
+        <!-- Name: -->
+        <TextView
+            android:labelFor="@+id/name"
+            android:id="@+id/labelName"
+            android:text="@string/label_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/name"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
+
+        <!-- Phone number: -->
+        <TextView
+            android:labelFor="@+id/phoneNumber"
+            android:id="@+id/labelPhoneNumber"
+            android:text="@string/label_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
+
+        <!-- Birthday: -->
+        <TextView
+            android:labelFor="@+id/birthday"
+            android:text="@string/label_birthday"
+            android:id="@+id/labelBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <DatePicker
+            android:id="@+id/birthday"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/date_picker_height"
+            android:calendarViewShown="false" >
+        </DatePicker>
+
+        <!-- Message: -->
+        <TextView
+            android:labelFor="@+id/message"
+            android:id="@+id/labelMessage"
+            android:text="@string/label_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/message"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <!-- Save-button: -->
+            <Button android:layout_width="wrap_content"
+                android:layout_height="@dimen/add_button_height"
+                android:text="@string/save"
+                android:textColor="@android:color/holo_blue_bright"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="@dimen/add_button_margin_top"
+                android:layout_gravity="end"
+                android:onClick="saveContactChanges" />
+
+            <!-- Delete-button: -->
+            <Button android:layout_width="wrap_content"
+                android:layout_height="@dimen/add_button_height"
+                android:text="@string/delete"
+                android:textColor="@android:color/holo_blue_bright"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="@dimen/add_button_margin_top"
+                android:layout_gravity="end"
+                android:onClick="deleteContact" />
+
+            <!-- Cancel-button: -->
+            <Button android:layout_width="wrap_content"
+                android:layout_height="@dimen/add_button_height"
+                android:text="@string/cancel"
+                android:textColor="@android:color/holo_blue_bright"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="@dimen/add_button_margin_top"
+                android:layout_gravity="end"
+                android:onClick="cancel" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

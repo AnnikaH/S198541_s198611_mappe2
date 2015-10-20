@@ -42,4 +42,11 @@
     <string name="phone_error_message">Telefonnr må være minst 8 siffer!</string>
     <string name="message_error_message">Meldingen kan ikke være tom!</string>
 
+    <!-- Edit contact -->
+    <string name="cancel">Avbryt</string>
+    <string name="delete">Slett</string>
+    <string name="parse_id_error_message">Det oppstod en feil! Vennen ble ikke slettet!</string>
+    <string name="parse_id_date_picker_error_message">Det oppstod en feil! Kunne ikke hente inn din venns bursdag!</string>
+    <string name="person_deleted_message">ble slettet!</string>
+
 </resources>

@@ -42,4 +42,11 @@
     <string name="phone_error_message">Phone number must be at least 8 digits!</string>
     <string name="message_error_message">The message cannot be empty!</string>
 
+    <!-- Edit contact -->
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="parse_id_error_message">An error occurred! The friend was not deleted!</string>
+    <string name="parse_id_date_picker_error_message">An error occurred! Unable to get your friend\'s birthday!</string>
+    <string name="person_deleted_message">was deleted!</string>
+
 </resources>

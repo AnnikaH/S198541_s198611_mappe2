@@ -148,6 +148,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void deletePerson(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_PERSONS, KEY_ID + " = ?", new String[] { String.valueOf(id) });
+        db.close();
+    }
+
     public Person getPerson(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_PERSONS,

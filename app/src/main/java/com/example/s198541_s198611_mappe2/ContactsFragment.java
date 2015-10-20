@@ -2,6 +2,7 @@ package com.example.s198541_s198611_mappe2;
 
 import android.app.Fragment;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -67,7 +68,7 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         }*/
 
         //String[] uiBindFrom = {ContactsContract.Contacts.DISPLAY_NAME};
-        String[] uiBindFrom = { DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY }; // TODO: ADD DBHandler.KEY_BIRTHDAY ?
+        String[] uiBindFrom = { DBHandler.KEY_NAME };
 
         int[] uiBindTo = { android.R.id.text1 };
 
@@ -79,8 +80,18 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
-                        .show();
+                int idPerson = (int) id;
+
+                Intent i = new Intent(getActivity(), EditContactActivity.class);
+
+                Person p = dbHandler.getPerson(idPerson);
+                i.putExtra("ID", p.get_ID());
+                i.putExtra("NAME", p.getName());
+                i.putExtra("PHONE", p.getPhoneNumber());
+                i.putExtra("BIRTHDAY", p.getBirthday());
+                i.putExtra("MESSAGE", p.getMessage());
+
+                startActivity(i);
             }
         });
 
@@ -100,10 +111,11 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         cursorLoader = new CursorLoader(getActivity().getBaseContext(), ContactsContract.Contacts.CONTENT_URI,
                 projection, null, null, null);*/
 
-        String[] projection = { DBHandler.KEY_ID, DBHandler.KEY_NAME } ;
-        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection, null, null, null);
+        String[] projection = { DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY } ;
+        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection, null, null, DBHandler.KEY_NAME);
+
         /*cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection, null, null,
-                DBHandler.KEY_NAME);*/
+                null);*/
 
         return cursorLoader;
     }

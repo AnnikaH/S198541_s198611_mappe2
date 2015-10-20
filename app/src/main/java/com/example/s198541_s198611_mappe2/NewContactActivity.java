@@ -45,8 +45,6 @@ public class NewContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_contact);
 
         dbHandler = new DBHandler(this);
-
-
     }
 
     // OnClick add-button:
@@ -65,6 +63,7 @@ public class NewContactActivity extends AppCompatActivity {
         String message = editTextMessage.getText().toString();
 
         // Validation of input:
+
         if(!name.matches("[a-zæøåA-ZÆØÅ0-9_ ]+")) {
             editTextName.setError(getString(R.string.name_error_message));
             return;
