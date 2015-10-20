@@ -69,8 +69,8 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    // OnClick changeLanguageButton
-    public void changeLanguage(View view) {
+    // OnClick settingsButton
+    public void goToSettings(View view) {
 
     }
 

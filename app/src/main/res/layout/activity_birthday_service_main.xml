@@ -74,7 +74,7 @@
             android:layout_height="@dimen/front_button_height"
             android:layout_margin="@dimen/front_button_margin"
             android:background="@color/header_text_color"
-            android:onClick="changeLanguage" />
+            android:onClick="goToSettings" />
 
     </LinearLayout>
 
