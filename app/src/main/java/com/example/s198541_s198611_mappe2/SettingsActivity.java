@@ -14,6 +14,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PrefsFragment()).commit();
     }
@@ -30,8 +31,8 @@ public class SettingsActivity extends AppCompatActivity {
             langPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Intent i = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                    startActivity(i);
+                    //Intent i = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                    //startActivity(i);
                     return true;
                 }
             });
