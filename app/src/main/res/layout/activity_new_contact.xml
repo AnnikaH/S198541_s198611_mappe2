@@ -26,7 +26,7 @@
         <EditText
             android:id="@+id/name"
             android:inputType="text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white" />
 
@@ -40,7 +40,7 @@
         <EditText
             android:id="@+id/phoneNumber"
             android:inputType="phone"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white" />
 
@@ -68,7 +68,7 @@
         <EditText
             android:id="@+id/message"
             android:inputType="text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white" />
 
@@ -76,7 +76,10 @@
         <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/holo_blue_bright"
+            android:background="@drawable/custom_button"
+            android:layout_marginTop="@dimen/add_button_margin_top"
+            android:layout_gravity="end"
             android:textAllCaps="false"
             android:onClick="addContact" />
 
