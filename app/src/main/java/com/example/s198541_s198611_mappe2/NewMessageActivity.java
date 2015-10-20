@@ -10,7 +10,7 @@ public class NewMessageActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_birthday_service_main);
+        setContentView(R.layout.activity_new_message);
     }
 
     @Override

@@ -7,7 +7,7 @@
     <string name="text_search_field">Søk..</string>
 
     <string name="friends">Venner</string>
-    <string name="new_message">Ny melding</string>
+    <string name="edit_message">Endre melding</string>
     <string name="birthdays">Bursdager</string>
 
     <string name="in_result_class">Du er i ResultOfNotificationActivity</string>
@@ -24,4 +24,9 @@
     <string name="add">Legg til</string>
 
     <string name="person_added_message">ble lagt til!</string>
+
+
+    <!-- ............... XML for Endre/Ny melding aktiviteten ............ -->
+
+    <string name="choose_receiver">Til</string>
 </resources>

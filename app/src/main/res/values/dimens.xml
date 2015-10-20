@@ -20,4 +20,7 @@
 
     <dimen name="date_picker_height">150dp</dimen>
 
+    <!-- Button New/Edit Message -->
+    <dimen name="choose_receiver_button_width">250dp</dimen>
+
 </resources>
