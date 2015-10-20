@@ -21,7 +21,7 @@ public class NewMessageActivity extends AppCompatActivity{
         /*  Insert method to open select contact activity */
         Intent i = new Intent(this, ChooseContactActivity.class);
         startActivity(i);
-        finish();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

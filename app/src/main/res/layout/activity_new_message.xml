@@ -18,6 +18,7 @@
         android:layout_width="@dimen/choose_receiver_button_width"
         android:layout_height="wrap_content"
         android:onClick="OpenContact"
+        android:id="@+id/select_contact"
         />
     </LinearLayout>
 <LinearLayout

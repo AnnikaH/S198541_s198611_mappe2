@@ -36,6 +36,10 @@
 
         </activity>
 
+        <activity android:name=".ChooseContactActivity"
+            android:label="@string/choose_receiver_head"
+            android:parentActivityName=".NewMessageActivity"></activity>
+
         <activity android:name=".BirthdaysActivity"
             android:label="@string/birthdays"
             android:parentActivityName=".BirthdayServiceMainActivity" >
@@ -44,9 +48,9 @@
 
         <activity android:name=".ResultOfNotificationActivity"
             android:label="@string/result_class_title"
-            android:parentActivityName=".BirthdayServiceMainActivity" >
+            android:parentActivityName=".BirthdayServiceMainActivity" />
 
-        </activity>
+
 
         <activity android:name=".NewContactActivity"
             android:label="@string/new_friend"
