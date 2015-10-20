@@ -16,7 +16,7 @@
     <dimen name="list_view_padding_top">42dp</dimen>
     <!--<dimen name="search_view_padding">2dp</dimen>-->
     <dimen name="search_view_width">240dp</dimen>
-    <dimen name="add_button_width">60dp</dimen>
+    <dimen name="add_button_height">40dp</dimen>
     <dimen name="add_button_padding_top">5dp</dimen>
     <dimen name="add_button_margin_top">7dp</dimen>
 
@@ -24,5 +24,10 @@
 
     <!-- Button New/Edit Message -->
     <dimen name="choose_receiver_button_width">250dp</dimen>
+
+    <dimen name="plus_button_margin_top">10dp</dimen>
+    <dimen name="plus_button_text_size">20sp</dimen>
+    <dimen name="plus_button_height">32dp</dimen>
+    <dimen name="plus_button_width">50dp</dimen>
 
 </resources>

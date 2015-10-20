@@ -14,18 +14,17 @@
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
         android:queryHint="@string/text_search_field" />
-    <!-- android:background="@drawable/search_view_border" -->
-
-    <!--android:padding="@dimen/search_view_padding"-->
 
     <Button
         android:text="@string/plus"
-        android:layout_width="@dimen/add_button_width"
-        android:layout_height="@dimen/list_view_padding_top"
+        android:textSize="@dimen/plus_button_text_size"
+        android:layout_width="@dimen/plus_button_width"
+        android:layout_height="@dimen/plus_button_height"
         android:layout_gravity="end"
-        android:layout_marginTop="@dimen/add_button_padding_top"
+        android:layout_marginTop="@dimen/plus_button_margin_top"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/holo_blue_bright"
+        android:background="@drawable/custom_button"
         android:onClick="goToAddNewContact" />
 
 </FrameLayout>

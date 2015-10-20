@@ -74,13 +74,12 @@
 
         <!-- Add-button: -->
         <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/add_button_height"
             android:text="@string/add"
             android:textColor="@android:color/holo_blue_bright"
             android:background="@drawable/custom_button"
             android:layout_marginTop="@dimen/add_button_margin_top"
             android:layout_gravity="end"
-            android:textAllCaps="false"
             android:onClick="addContact" />
 
             <!--android:background="@color/contact_button_color" -->
