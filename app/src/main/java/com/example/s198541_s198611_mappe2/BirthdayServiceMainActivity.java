@@ -22,7 +22,7 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
         Typeface bebasNeueFont = Typeface.createFromAsset(getAssets(), "fonts/bebasneue.ttf");
         textViewCustom.setTypeface(bebasNeueFont);
 
-        Switch serviceSwitch = (Switch) findViewById(R.id.startStopServiceSwitch);
+        /*Switch serviceSwitch = (Switch) findViewById(R.id.startStopServiceSwitch);
 
         // TODO: SetChecked to whatever the user last chose:
         serviceSwitch.setChecked(false);
@@ -40,7 +40,7 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
         // If need to check the current state before we display the screen
         /*if(serviceSwitch.isChecked()){
