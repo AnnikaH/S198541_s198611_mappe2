@@ -78,6 +78,7 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
                         .show();
             }
