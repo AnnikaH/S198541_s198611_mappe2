@@ -5,6 +5,8 @@
     <string name="on_off_switch">Turn app on or off:</string>
     <string name="settings">Settings</string>
 
+    <string name="our_default_message">Happy Birthday!</string>
+
     <string name="text_search_field">Search..</string>
 
     <string name="friends">Friends</string>

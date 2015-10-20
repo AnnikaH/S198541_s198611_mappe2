@@ -11,9 +11,13 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.sql.Time;
 import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    String defaultMessage;
+    String timeOfDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,32 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PrefsFragment()).commit();
+    }
+
+    // Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if(defaultMessage.equals("")) {
+            defaultMessage = getString(R.string.our_default_message);
+        }
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putString("defaultMessage", defaultMessage)
+                .putString("timeOfDay", timeOfDay)
+                .commit();
+    }
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        defaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("defaultMessage", ""));
+        timeOfDay = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("timeOfDay", ""));
     }
 
     @Override

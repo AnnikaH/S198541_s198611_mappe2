@@ -20,6 +20,22 @@ import android.widget.Toast;
 public class NewContactActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
+    String storedDefaultMessage;
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        storedDefaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("defaultMessage", ""));
+
+        if(storedDefaultMessage.equals(""))
+            storedDefaultMessage = getString(R.string.our_default_message);
+
+        EditText messageField = (EditText) findViewById(R.id.message);
+        messageField.setText(storedDefaultMessage);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
