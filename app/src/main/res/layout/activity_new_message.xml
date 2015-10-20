@@ -17,6 +17,7 @@
     <Button
         android:layout_width="@dimen/choose_receiver_button_width"
         android:layout_height="wrap_content"
+        android:onClick="OpenContact"
         /></LinearLayout>
 
     <LinearLayout
@@ -32,6 +33,14 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@color/background_color"
+            android:textColor="@color/android_blue"
+            android:text="@string/save"/>
     </LinearLayout>
 
 

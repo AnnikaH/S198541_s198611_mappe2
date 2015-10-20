@@ -29,4 +29,5 @@
     <!-- ............... XML for Endre/Ny melding aktiviteten ............ -->
 
     <string name="choose_receiver">Til</string>
+    <string name="save">Lagre</string>
 </resources>

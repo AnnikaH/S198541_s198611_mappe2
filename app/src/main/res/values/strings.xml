@@ -29,4 +29,5 @@
 
     <!-- ................ XML Strings on Edit/New Message activity............-->
     <string name="choose_receiver">To</string>
+    <string name="save">Save</string>
 </resources>
