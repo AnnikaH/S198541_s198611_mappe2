@@ -57,7 +57,7 @@ public class NewContactActivity extends AppCompatActivity {
         String name = editTextName.getText().toString();
         String phoneNumber = editTextPhoneNumber.getText().toString();
         int year = datePickerBirthday.getYear();
-        int month = datePickerBirthday.getMonth();
+        int month = datePickerBirthday.getMonth() + 1;  // month indexed differently in DatePicker
         int day = datePickerBirthday.getDayOfMonth();
         String birthday = year + "-" + month + "-" + day;
         String message = editTextMessage.getText().toString();

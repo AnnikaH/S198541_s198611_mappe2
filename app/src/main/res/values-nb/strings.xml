@@ -45,8 +45,10 @@
     <!-- Edit contact -->
     <string name="cancel">Avbryt</string>
     <string name="delete">Slett</string>
-    <string name="parse_id_error_message">Det oppstod en feil! Vennen ble ikke slettet!</string>
+    <string name="parse_id_error_message">Det oppstod en feil! Vennen din ble ikke slettet!</string>
     <string name="parse_id_date_picker_error_message">Det oppstod en feil! Kunne ikke hente inn din venns bursdag!</string>
     <string name="person_deleted_message">ble slettet!</string>
+    <string name="person_edited_message">s info ble endret!</string>
+    <string name="parse_id_edited_error_message">Det oppstod en feil! Infoen til vennen din ble ikke endret!</string>
 
 </resources>

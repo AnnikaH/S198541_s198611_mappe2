@@ -44,10 +44,8 @@ public class EditContactActivity extends AppCompatActivity {
 
         try {
             year = Integer.parseInt(birthdayArray[0]);
-            month = Integer.parseInt(birthdayArray[1]);
+            month = Integer.parseInt(birthdayArray[1]) - 1; // month indexed differently in DatePicker (want the database-date to be correct)
             day = Integer.parseInt(birthdayArray[2]);
-
-            Log.d("BIRTHDAY: ", year + " " + month + " " + day);
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, getString(R.string.parse_id_date_picker_error_message), Toast.LENGTH_SHORT).show();
         }
@@ -58,9 +56,56 @@ public class EditContactActivity extends AppCompatActivity {
 
     // OnClick save-button:
     public void saveContactChanges(View view) {
+        EditText editTextName = (EditText) findViewById(R.id.name);
+        EditText editTextPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        DatePicker datePickerBirthday = (DatePicker) findViewById(R.id.birthday);
+        EditText editTextMessage = (EditText) findViewById(R.id.message);
 
-        // copy-paste samme kode som i add contact (når trykker på add-knappen)
+        String namePerson = editTextName.getText().toString();
+        String phoneNumber = editTextPhoneNumber.getText().toString();
+        int year = datePickerBirthday.getYear();
+        int month = datePickerBirthday.getMonth() + 1;  // month indexed differently in DatePicker
+        int day = datePickerBirthday.getDayOfMonth();
+        String birthday = year + "-" + month + "-" + day;
+        String message = editTextMessage.getText().toString();
 
+        // Validation of input:
+
+        if(!namePerson.matches("[a-zæøåA-ZÆØÅ0-9_ ]+")) {
+            editTextName.setError(getString(R.string.name_error_message));
+            return;
+        }
+
+        if(!phoneNumber.matches("[0-9]{8,}")) {
+            editTextPhoneNumber.setError(getString(R.string.phone_error_message));
+            return;
+        }
+
+        if(!message.matches(".+")) {
+            editTextMessage.setError(getString(R.string.message_error_message));
+            return;
+        }
+
+        int id;
+        Person p;
+
+        try {
+            id = getIntent().getIntExtra("ID", -1);
+            p = dbHandler.getPerson(id);
+            p.setName(namePerson);
+            p.setPhoneNumber(phoneNumber);
+            p.setBirthday(birthday);
+            p.setMessage(message);
+            dbHandler.updatePerson(p);
+            Toast.makeText(this, name + getString(R.string.person_edited_message), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, getString(R.string.parse_id_edited_error_message), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent i = new Intent(this, ContactsActivity.class);
+        startActivity(i);
+        finish();
     }
 
     // OnClick delete-button:

@@ -45,8 +45,10 @@
     <!-- Edit contact -->
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
-    <string name="parse_id_error_message">An error occurred! The friend was not deleted!</string>
+    <string name="parse_id_error_message">An error occurred! Your friend was not deleted!</string>
     <string name="parse_id_date_picker_error_message">An error occurred! Unable to get your friend\'s birthday!</string>
     <string name="person_deleted_message">was deleted!</string>
+    <string name="person_edited_message">\'s info has been changed!</string>
+    <string name="parse_id_edited_error_message">An error occurred! Your friend\'s info was not changed!</string>
 
 </resources>
