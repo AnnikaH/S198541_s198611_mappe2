@@ -1,5 +1,6 @@
 package com.example.s198541_s198611_mappe2;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_birthday_service_main);
 
         TextView textViewCustom = (TextView) findViewById(R.id.front_app_name);

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
@@ -51,12 +52,14 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
         int[] uiBindTo = {android.R.id.text1, android.R.id.text2};
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
-                android.R.layout.simple_list_item_2, null, uiBindFrom, uiBindTo, 0);
+                android.R.layout.simple_list_item_multiple_choice, null, uiBindFrom, uiBindTo, 0);
         ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CheckedTextView item = (CheckedTextView) view;
+                item.isChecked();
                 Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
                         .show();
             }
