@@ -60,10 +60,18 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CheckedTextView item = (CheckedTextView) view;
-                item.setChecked(true);
+                if(item.isChecked())
+                {
+                    item.setChecked(false);
+                }
+
+                else
+                {
+                    item.setChecked(true);
+                }
+
                 Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
                         .show();
-
             }
         });
 
