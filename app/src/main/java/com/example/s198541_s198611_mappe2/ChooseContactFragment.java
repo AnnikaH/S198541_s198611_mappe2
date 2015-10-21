@@ -75,14 +75,7 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
             }
 
 
-            public void selectReceiver(View v)
-            {
-        /* Method to send selected receivers to New Message activity */
-                Intent i = new Intent(this, NewMessageActivity.class);
-                i.putExtra("ID",  )
-                startActivity(i);
 
-            }
         });
 
 
