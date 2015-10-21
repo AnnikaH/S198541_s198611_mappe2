@@ -3,6 +3,7 @@ package com.example.s198541_s198611_mappe2;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -62,8 +63,10 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
                 item.setChecked(true);
                 Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
                         .show();
+
             }
         });
+
 
         searchView = (SearchView) getActivity().findViewById(R.id.search_view);
 
