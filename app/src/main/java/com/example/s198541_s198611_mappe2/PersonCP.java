@@ -43,8 +43,7 @@ public class PersonCP extends ContentProvider {
                     selectionArgs, null, null, sortOrder);
         }
         else {
-            cur = db.query(DBHandler.TABLE_PERSONS, projection, null, selectionArgs, null, null, sortOrder);
-            //cur = db.query(DBHandler.TABLE_PERSONS, new String[] { DBHandler.KEY_ID, DBHandler.KEY_NAME }, null, null, null, null, null);
+            cur = db.query(DBHandler.TABLE_PERSONS, projection, selection, selectionArgs, null, null, sortOrder);
         }
 
         return cur;
@@ -55,10 +54,6 @@ public class PersonCP extends ContentProvider {
         switch(uriMatcher.match(uri)) {
             case MCONTACTS: return "vnd.android.cursor.dir/vnd.example.person";
             case CONTACT: return "vnd.android.cursor.item/vnd.example.person";
-
-            //case MCONTACTS: return "vnd.android.cursor.dir/vnd.example.Person";
-            //case CONTACT: return "vnd.android.cursor.item/vnd.example.Person";
-
             default: throw new IllegalArgumentException("Invalid URI " + uri);
         }
     }
