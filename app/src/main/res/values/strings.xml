@@ -50,5 +50,7 @@
     <string name="person_deleted_message">was deleted!</string>
     <string name="person_edited_message">\'s info has been changed!</string>
     <string name="parse_id_edited_error_message">An error occurred! Your friend\'s info was not changed!</string>
+    <string name="yes">Yes</string>
+    <string name="delete_warning_message">Do you really want to delete this friend?</string>
 
 </resources>

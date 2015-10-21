@@ -8,10 +8,6 @@
         <item name="android:editTextColor">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/white</item>
 
-        <!-- android:editTextColor makes part of the datepicker text white -->
-
-        <!--<item name="android:popupBackground">#000000</item>-->
-
     </style>
 
 </resources>

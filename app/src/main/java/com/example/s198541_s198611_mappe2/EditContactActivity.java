@@ -13,10 +13,37 @@ import android.widget.Toast;
 
 // When clicking on/selecting a contact in the ContactsActivity
 
-public class EditContactActivity extends AppCompatActivity {
+public class EditContactActivity extends AppCompatActivity implements WarningDialog.DialogClickListener {
 
     private DBHandler dbHandler;
     private String name;
+
+    // WarningDialog-method:
+    @Override
+    public void onYesClick() {
+        // Then the user wants to delete the person:
+
+        int id;
+
+        try {
+            id = getIntent().getIntExtra("ID", -1);
+            dbHandler.deletePerson(id);
+            Toast.makeText(this, name + " " + getString(R.string.person_deleted_message), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, getString(R.string.parse_id_error_message), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent i = new Intent(this, ContactsActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    // WarningDialog-method:
+    @Override
+    public void onCancelClick() {
+        // do nothing
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,23 +137,11 @@ public class EditContactActivity extends AppCompatActivity {
 
     // OnClick delete-button:
     public void deleteContact(View view) {
-
-        // TODO: Dialog: are you sure?
-
-        int id;
-
-        try {
-            id = getIntent().getIntExtra("ID", -1);
-            dbHandler.deletePerson(id);
-            Toast.makeText(this, name + " " + getString(R.string.person_deleted_message), Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(this, getString(R.string.parse_id_error_message), Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        Intent i = new Intent(this, ContactsActivity.class);
-        startActivity(i);
-        finish();
+        // Pop-up with warning first:
+        String message = getString(R.string.delete_warning_message);
+        WarningDialog dialog = WarningDialog.newInstance(message);
+        dialog.show(getFragmentManager(), "DELETE");
+        // Waiting for the user to make a choice: Yes or Cancel
     }
 
     // OnClick cancel-button:

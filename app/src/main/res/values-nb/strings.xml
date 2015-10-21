@@ -50,5 +50,7 @@
     <string name="person_deleted_message">ble slettet!</string>
     <string name="person_edited_message">s info ble endret!</string>
     <string name="parse_id_edited_error_message">Det oppstod en feil! Infoen til vennen din ble ikke endret!</string>
+    <string name="yes">Ja</string>
+    <string name="delete_warning_message">Vil du virkelig slette denne vennen?</string>
 
 </resources>
