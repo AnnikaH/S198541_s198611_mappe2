@@ -43,7 +43,7 @@ public class PersonCP extends ContentProvider {
                     selectionArgs, null, null, sortOrder);
         }
         else {
-            cur = db.query(DBHandler.TABLE_PERSONS, null, null, null, null, null, null);
+            cur = db.query(DBHandler.TABLE_PERSONS, projection, null, selectionArgs, null, null, sortOrder);
             //cur = db.query(DBHandler.TABLE_PERSONS, new String[] { DBHandler.KEY_ID, DBHandler.KEY_NAME }, null, null, null, null, null);
         }
 

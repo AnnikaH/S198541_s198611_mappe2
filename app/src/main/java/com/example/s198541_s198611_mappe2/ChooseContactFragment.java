@@ -19,7 +19,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class ChooseContactFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
         SearchView.OnQueryTextListener {
 
@@ -48,13 +47,11 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
 
         dbHandler = new DBHandler(getActivity().getBaseContext());
 
-
-        String[] uiBindFrom = {DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY}; // TODO: ADD DBHandler.KEY_BIRTHDAY ?
-
-        int[] uiBindTo = {android.R.id.text1};
+        String[] uiBindFrom = {DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
+        int[] uiBindTo = {android.R.id.text1, android.R.id.text2};
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
-                android.R.layout.simple_list_item_1, null, uiBindFrom, uiBindTo, 0);
+                android.R.layout.simple_list_item_2, null, uiBindFrom, uiBindTo, 0);
         ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -66,24 +63,23 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
         });
 
         searchView = (SearchView) getActivity().findViewById(R.id.search_view);
-        int idSearchViewInputText = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+
+        int idSearchViewInputText = searchView.getContext().getResources().getIdentifier("android:id/search_src_text",
+                null, null);
         TextView searchViewText = (TextView) searchView.findViewById(idSearchViewInputText);
         searchViewText.setHintTextColor(Color.WHITE);
         searchViewText.setTextColor(Color.WHITE);
 
         searchView.setOnQueryTextListener(this);
 
-        loaderManager.initLoader(0, null, this);    // 0 er id'en
+        loaderManager.initLoader(0, null, this);
     }
 
     public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
 
-
-        String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME};
-        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection, null, null, null);
-        /*cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection, null, null,
-                DBHandler.KEY_NAME);*/
-
+        String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
+        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
+                null, null, DBHandler.KEY_NAME);
         return cursorLoader;
     }
 
