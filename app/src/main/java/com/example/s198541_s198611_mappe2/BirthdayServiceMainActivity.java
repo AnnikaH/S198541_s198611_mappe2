@@ -19,6 +19,7 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_birthday_service_main);
 
         TextView textViewCustom = (TextView) findViewById(R.id.front_app_name);
