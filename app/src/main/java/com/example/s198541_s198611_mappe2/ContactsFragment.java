@@ -10,12 +10,14 @@ import android.os.Bundle;
 // import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.app.LoaderManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FilterQueryProvider;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
@@ -34,6 +36,9 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
     DBHandler dbHandler;
     String TAG = "LOADER";
     SearchView searchView;
+    ListView listView;
+
+    String mCurFilter;
 
     public ContactsFragment() {
 
@@ -58,8 +63,12 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_2, null, uiBindFrom, uiBindTo, 0);
-        ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
+        listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
+
+        // ADDING:
+        listView.setTextFilterEnabled(true);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -89,6 +98,20 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
 
         searchView.setOnQueryTextListener(this);
 
+        /*mAdapter.setFilterQueryProvider(new FilterQueryProvider() {
+            @Override
+            public Cursor runQuery(CharSequence constraint) {
+                String partial = constraint.toString();
+
+                String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
+                String[] selectionArgs = { String.valueOf(partial) };
+                cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
+                        DBHandler.KEY_NAME + " LIKE ?", selectionArgs, DBHandler.KEY_NAME);
+
+                return cursorLoader;
+            }
+        });*/
+
         loaderManager.initLoader(0, null, this);
     }
 
@@ -116,14 +139,52 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        mAdapter.getFilter().filter(newText);
+        /*String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
+        String[] selectionArgs = { String.valueOf(newText) };
+        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
+                DBHandler.KEY_NAME + " LIKE ?", selectionArgs, DBHandler.KEY_NAME);
 
+        loaderManager.initLoader(0, null, this);*/
+
+        /*mAdapter.setFilterQueryProvider(new FilterQueryProvider() {
+            @Override
+            public Cursor runQuery(CharSequence constraint) {
+                dbHandler.getAllPersonsFromName(constraint.toString());
+                Cursor cursor = new CursorLoader();
+                return cursor;
+            }
+        });*/
+
+        //mAdapter.getFilter().filter(newText);
+
+        /*if(TextUtils.isEmpty(newText)) {
+            listView.clearTextFilter();
+        } else {
+            listView.setFilterText(newText);
+        }*/
+
+        String newFilter = !TextUtils.isEmpty(newText) ? newText : null;
+        // Don't do anything if the filter hasn't actually changed.
+        // Prevents restarting the loader when restoring state.
+        if (mCurFilter == null && newFilter == null) {
+            return true;
+        }
+
+        if (mCurFilter != null && mCurFilter.equals(newFilter)) {
+            return true;
+        }
+
+        mCurFilter = newFilter;
+
+        
+
+        getLoaderManager().restartLoader(0, null, this);
         return true;
     }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-
+        //onQueryTextChange(query);
         return false;
     }
 }

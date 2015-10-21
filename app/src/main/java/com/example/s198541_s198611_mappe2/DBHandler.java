@@ -67,25 +67,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 person.set_ID(cursor.getInt(0));
                 person.setName(cursor.getString(1));
                 person.setPhoneNumber(cursor.getString(2));
-
-                //long dateMillis = cursor.getLong(3)*1000;
-                //Log.d("DATEMILLIS: ", dateMillis + "");
-
-                //Date date = new Date(dateMillis);
-                //Log.d("DATE FROM MILLIS: ", date + "");
-
-                //String dateString = cursor.getString(3); // * 1000 ??
-
-                //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-                //String formatted = sdf.format(Date.valueOf(dateString));
-
-                //Date date = Date.valueOf(dateString);
-
-                //long millis = cursor.getLong(cursor.getColumnIndex(KEY_BIRTHDAY));
-                //Date date = new Date(millis*1000);
-
-                //Log.d("DATE DBHANDLER: ", date + "");
-
                 person.setBirthday(cursor.getString(3));
                 person.setMessage(cursor.getString(4));
                 persons.add(person);
@@ -97,7 +78,30 @@ public class DBHandler extends SQLiteOpenHelper {
         return persons;
     }
 
-    public List<Person> getAllPersonsOrderedByBirthday() {
+    public List<Person> getAllPersonsFromName(String namePart) {
+        List<Person> persons = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_PERSONS + " WHERE " + KEY_NAME + " LIKE " + namePart + "%";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Person person = new Person();
+                person.set_ID(cursor.getInt(0));
+                person.setName(cursor.getString(1));
+                person.setPhoneNumber(cursor.getString(2));
+                person.setBirthday(cursor.getString(3));
+                person.setMessage(cursor.getString(4));
+                persons.add(person);
+            } while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return persons;
+    }
+
+    public List<Person> getAllPersonsByBirthday() {
         List<Person> persons = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_PERSONS + " ORDER BY " + KEY_BIRTHDAY;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -142,15 +146,15 @@ public class DBHandler extends SQLiteOpenHelper {
         return changed;
     }
 
-    public void deletePerson(Person person) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_PERSONS, KEY_ID + " = ?", new String[] { String.valueOf(person.get_ID()) });
-        db.close();
-    }
-
     public void deletePerson(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PERSONS, KEY_ID + " = ?", new String[] { String.valueOf(id) });
+        db.close();
+    }
+
+    public void deletePerson(Person person) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_PERSONS, KEY_ID + " = ?", new String[] { String.valueOf(person.get_ID()) });
         db.close();
     }
 
@@ -181,28 +185,6 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_PERSONS,
                 new String[] { KEY_ID, KEY_NAME, KEY_PH_NO, KEY_BIRTHDAY, KEY_MESSAGE }, KEY_PH_NO + " = ?",
                 new String[] { phoneNumber }, null, null, null, null);
-
-        if(cursor != null) {
-            if(cursor.moveToFirst()) {
-                Person person = new Person(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                        cursor.getString(3), cursor.getString(4));
-
-                cursor.close();
-                db.close();
-
-                return person;
-            }
-        }
-
-        db.close();
-        return null;
-    }
-
-    public Person getPersonFromBirthday(String birthday) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_PERSONS,
-                new String[] { KEY_ID, KEY_NAME, KEY_PH_NO, KEY_BIRTHDAY, KEY_MESSAGE }, KEY_BIRTHDAY + " = ?",
-                new String[] { birthday }, null, null, null, null);
 
         if(cursor != null) {
             if(cursor.moveToFirst()) {

@@ -32,33 +32,6 @@ public class ContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        /*db = new DBHandler(this);
-
-        Log.d("Legg inn: ", "legger til kontakter");
-
-        String dateString = "1989-06-07";
-        //Date date = Date.valueOf(dateString);
-
-        // Oppretter en kontakt uten noen melding for Ã¥ teste:
-        db.addPerson(new Person("Pernille", "41234567", dateString));*/
-
-
-//        List<Person> persons = db.getAllPersons();
-//        String[] personNameArray = new String[persons.size()];
-//
-//        int count = 0;
-//
-//        for(Person pers : persons) {
-//            String log = "Id: " + pers.get_ID() + ", Name: " +
-//                    pers.getName() + ", PhoneNumber: " + pers.getPhoneNumber() +
-//                    ", Birthday: " + pers.getBirthday() + ", Message is null for now";
-//
-//            personNameArray[count++] = pers.getName() + " " + pers.getBirthday();
-//
-//            Log.d("Persons: ", log);
-//        }
-
-
         if(findViewById(R.id.fragment_container) != null) {
             if(savedInstanceState != null) {
                 return;
@@ -69,8 +42,6 @@ public class ContactsActivity extends AppCompatActivity {
             getFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, contactsFragment).commit();
         }
-
-
 
         //list_view = (ListView) findViewById(R.id.list_view);
 
