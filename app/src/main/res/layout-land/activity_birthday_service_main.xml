@@ -64,7 +64,7 @@
             android:layout_width="@dimen/front_button_width"
             android:layout_height="@dimen/front_button_height"
             android:layout_margin="@dimen/front_button_margin"
-            android:background="@color/header_text_color"
+            android:background="@drawable/setting_icon"
             android:onClick="goToSettings" />
 
     </LinearLayout>
