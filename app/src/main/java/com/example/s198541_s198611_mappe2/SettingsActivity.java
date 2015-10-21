@@ -11,13 +11,19 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.sql.Time;
 import java.util.Locale;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements TimePickerDialog.Listener {
 
     String defaultMessage;
     String timeOfDay;
+    boolean serviceOn;
+
+    // Method in TimePickerDialog
+    @Override
+    public void setTime(String key, int hour, int minute) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,8 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PrefsFragment()).commit();
+
+        //TODO: På change_time: android:summary="@string/time_picker_dialog_summary"
     }
 
     // Store in SharedPreferences:
@@ -37,8 +45,9 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putString("defaultMessage", defaultMessage)
                 .putString("timeOfDay", timeOfDay)
+                .putString("defaultMessage", defaultMessage)
+                .putBoolean("serviceOn", serviceOn)
                 .commit();
     }
 
@@ -47,10 +56,12 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        defaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getString("defaultMessage", ""));
         timeOfDay = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getString("timeOfDay", ""));
+        defaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("defaultMessage", ""));
+        serviceOn = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("serviceOn", true));
     }
 
     @Override

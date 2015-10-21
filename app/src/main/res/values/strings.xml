@@ -30,14 +30,11 @@
 
     <string name="person_added_message">was added!</string>
 
-    <string name="change_language_title">Language</string>
-
     <!-- ................ XML Strings on Edit/New Message activity............-->
     <string name="choose_receiver">To</string>
     <string name="save">Save</string>
     <string name="choose_receiver_head">Choose Friend</string>
     <string name="ok">Ok</string>
-
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Name must be filled in!</string>
@@ -54,5 +51,13 @@
     <string name="parse_id_edited_error_message">An error occurred! Your friend\'s info was not changed!</string>
     <string name="yes">Yes</string>
     <string name="delete_warning_message">Do you really want to delete this friend?</string>
+
+    <!-- Settings -->
+    <string name="change_time_title">Time for sending SMS</string>
+    <string name="change_default_message_title">Default SMS message</string>
+    <string name="turn_app_on_off_title">Sending SMS</string>
+    <string name="change_language_title">Language</string>
+    <string name="time_picker_dialog_summary">Set time</string>
+    <string name="set">Set</string>
 
 </resources>
