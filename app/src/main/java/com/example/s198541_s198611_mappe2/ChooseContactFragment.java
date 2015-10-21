@@ -53,13 +53,13 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_multiple_choice, null, uiBindFrom, uiBindTo, 0);
-        ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
+        final ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CheckedTextView item = (CheckedTextView) view;
-                item.isChecked();
+                item.setChecked(true);
                 Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
                         .show();
             }
