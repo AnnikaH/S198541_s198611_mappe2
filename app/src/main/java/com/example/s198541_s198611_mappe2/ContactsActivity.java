@@ -18,15 +18,6 @@ import java.util.List;
 
 public class ContactsActivity extends AppCompatActivity {
 
-    //implements SearchView.OnQueryTextListener
-
-    //DBHandler db;
-
-    // SearchView search_view;
-    //ListView list_view;
-
-    //ArrayAdapter<String> adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,26 +33,7 @@ public class ContactsActivity extends AppCompatActivity {
             getFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, contactsFragment).commit();
         }
-
-        //list_view = (ListView) findViewById(R.id.list_view);
-
-        //adapter = new ArrayAdapter<>(this, R.layout.list, R.id.name, personNameArray);
-        //list_view.setAdapter(adapter);
-
-//        search_view = (SearchView) findViewById(R.id.search_view);
-//        search_view.setOnQueryTextListener(this);
     }
-
-//    @Override
-//    public boolean onQueryTextChange(String newText) {
-//        adapter.getFilter().filter(newText);
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextSubmit(String query) {
-//        return false;
-//    }
 
     // Add-button clicked:
     public void goToAddNewContact(View view) {
