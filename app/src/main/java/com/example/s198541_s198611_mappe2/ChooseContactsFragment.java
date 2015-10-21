@@ -21,7 +21,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseContactFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
+public class ChooseContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
         SearchView.OnQueryTextListener {
 
     LoaderManager loaderManager;
@@ -31,7 +31,7 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
     String TAG = "LOADER";
     SearchView searchView;
 
-    public ChooseContactFragment() {
+    public ChooseContactsFragment() {
 
     }
 
@@ -61,23 +61,11 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CheckedTextView item = (CheckedTextView) view;
                 if(item.isChecked())
-                {
                     item.setChecked(false);
-                }
-
                 else
-                {
                     item.setChecked(true);
-                }
-
-                Toast.makeText(getActivity().getBaseContext(), position + " klikket", Toast.LENGTH_SHORT)
-                        .show();
             }
-
-
-
         });
-
 
         searchView = (SearchView) getActivity().findViewById(R.id.search_view);
 
@@ -126,6 +114,4 @@ public class ChooseContactFragment extends Fragment implements LoaderManager.Loa
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-
-
 }

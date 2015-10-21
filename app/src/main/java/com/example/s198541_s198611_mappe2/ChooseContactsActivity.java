@@ -7,23 +7,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class NewMessageActivity extends AppCompatActivity{
-
+public class ChooseContactsActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_choose_contacts);
 
-        setContentView(R.layout.activity_new_message);
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
+                return;
+            }
 
+            ChooseContactsFragment chooseContactsFragment = new ChooseContactsFragment();
+            chooseContactsFragment.setArguments(getIntent().getExtras());
+            getFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, chooseContactsFragment).commit();
+        }
     }
 
-    public void OpenContact(View v)
-    {
-        /*  Insert method to open select contact activity */
-        Intent i = new Intent(this, ChooseContactActivity.class);
+    // OK-button clicked:
+    public void returnWithChosenContacts(View view) {
+        Intent i = new Intent(this, ChangeMessageForContactsActivity.class);
+
+
+
         startActivity(i);
-
+        finish();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -39,10 +50,10 @@ public class NewMessageActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-     /*   if (id == R.id.action_settings) {
+       /* if (id == R.id.action_settings) {
             return true;
-        }
-*/
+        }*/
+
         return super.onOptionsItemSelected(item);
     }
 }

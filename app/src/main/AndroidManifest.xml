@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewMessageActivity"
+        <activity android:name=".ChangeMessageForContactsActivity"
             android:label="@string/edit_message"
             android:parentActivityName=".BirthdayServiceMainActivity" >
         </activity>
@@ -34,9 +34,9 @@
             android:parentActivityName=".BirthdayServiceMainActivity" >
         </activity>
 
-        <activity android:name=".ChooseContactActivity"
+        <activity android:name=".ChooseContactsActivity"
             android:label="@string/choose_receiver_head"
-            android:parentActivityName=".NewMessageActivity" >
+            android:parentActivityName=".ChangeMessageForContactsActivity" >
         </activity>
 
         <activity android:name=".BirthdaysActivity"

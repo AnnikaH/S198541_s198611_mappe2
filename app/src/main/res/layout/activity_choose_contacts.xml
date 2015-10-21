@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_container"
-    tools:context=".ContactsActivity"
+    tools:context=".ChooseContactsActivity"
     android:background="@color/background_color" >
 
     <!-- SearchView -->
@@ -14,18 +14,14 @@
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
         android:queryHint="@string/text_search_field" />
-    <!-- android:background="@drawable/search_view_border" -->
-
-    <!--android:padding="@dimen/search_view_padding"-->
-
 
   <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:textColor="@android:color/holo_blue_bright"
         android:background="@drawable/custom_button"
-        android:onClick=".selectReceiver"/>
-</FrameLayout>
+        android:onClick="returnWithChosenContacts" />
 
+</FrameLayout>

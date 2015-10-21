@@ -1,6 +1,5 @@
 package com.example.s198541_s198611_mappe2;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class BirthdayServiceMainActivity extends AppCompatActivity {
@@ -57,7 +52,7 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
 
     // OnClick newMessageButton
     public void goToNewMessage(View view) {
-        Intent i = new Intent(this, NewMessageActivity.class);
+        Intent i = new Intent(this, ChangeMessageForContactsActivity.class);
         startActivity(i);
     }
 
