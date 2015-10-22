@@ -13,17 +13,11 @@ import android.view.MenuItem;
 
 import java.util.Locale;
 
-public class SettingsActivity extends AppCompatActivity implements TimePickerDialog.Listener {
+public class SettingsActivity extends AppCompatActivity {
 
     String defaultMessage;
     String timeOfDay;
     boolean serviceOn;
-
-    // Method in TimePickerDialog
-    @Override
-    public void setTime(String key, int hour, int minute) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
