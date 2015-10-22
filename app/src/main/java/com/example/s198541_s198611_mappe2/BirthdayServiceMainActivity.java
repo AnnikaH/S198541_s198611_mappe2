@@ -24,10 +24,10 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
         Typeface bebasNeueFont = Typeface.createFromAsset(getAssets(), "fonts/bebasneue.ttf");
         textViewCustom.setTypeface(bebasNeueFont);
 
-        // Sending broadcast (the broadcast checks if going to continue to service or not, and the service double checks this too):
+        /*Sending broadcast (the broadcast checks if going to continue to service or not, and the service double checks this too):
         Intent i = new Intent();
         i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
-        sendBroadcast(i);
+        sendBroadcast(i);*/
     }
 
     // OnClick newMessageButton
