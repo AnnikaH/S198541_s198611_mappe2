@@ -17,13 +17,12 @@ public class TimePickerDialog extends DialogPreference {
 
     public TimePickerDialog (Context context) {
         this(context, null);
-        this.context=context;
-
+        this.context = context;
     }
 
     public TimePickerDialog (Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        this.context=context;
+        this.context = context;
     }
 
     public TimePickerDialog (Context context, AttributeSet attrs, int defStyle) {
@@ -32,7 +31,6 @@ public class TimePickerDialog extends DialogPreference {
         this.context = context;
         setPositiveButtonText(getContext().getString(R.string.set));
         setNegativeButtonText(getContext().getString(R.string.cancel));
-
     }
 
     public void setListener(Listener listener){
