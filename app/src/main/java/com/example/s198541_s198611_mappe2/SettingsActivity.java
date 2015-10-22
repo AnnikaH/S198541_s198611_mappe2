@@ -44,21 +44,6 @@ public class SettingsActivity extends AppCompatActivity {
                     getActivity().sendBroadcast(i);
 
                     return true;
-
-                    //getActivity().finish(); // to start up main activity which starts a broadcast
-                    //return true;
-
-                    /*if(checked) {
-
-                    }
-                    else {
-                        // turn off
-                        Log.d("RECEIVER: ", "ELSE");
-
-                        // unregister receiver?
-
-                        return false;
-                    }*/
                 }
             });
 
