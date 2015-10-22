@@ -10,9 +10,11 @@
     <dimen name="front_button_height">100dp</dimen>
     <dimen name="front_button_margin">5dp</dimen>
     <dimen name="front_margin_top">10dp</dimen>
+    <dimen name="front_margin_top_land">20dp</dimen>
     <dimen name="switch_label_padding">5dp</dimen>
     <dimen name="front_header_padding_bottom">40dp</dimen>
     <dimen name="front_header_padding_top">10dp</dimen>
+    <dimen name="front_header_padding_top_land">30dp</dimen>
 
     <dimen name="list_view_padding_top">42dp</dimen>
     <dimen name="search_view_width">240dp</dimen>
