@@ -3,6 +3,8 @@ package com.example.s198541_s198611_mappe2;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TimePicker;
@@ -58,8 +60,7 @@ public class TimePickerDialog extends DialogPreference {
 
     public void updateSummary() {
         String time = String.valueOf(mHour) + ":" + String.valueOf(mMinute);
-        setSummary(time24to12(time));
-        //setSummary(time);
+        setSummary(time24(time));
     }
 
     @Override
@@ -102,7 +103,7 @@ public class TimePickerDialog extends DialogPreference {
 
     @Override
     protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
-        String time = null;
+        String time;
 
         if (restorePersistedValue) {
             if (defaultValue == null) {
@@ -132,10 +133,10 @@ public class TimePickerDialog extends DialogPreference {
         }
     }
 
-    public static String time24to12(String inTime) {
+    public static String time24(String inTime) {
         Date inDate = toDate(inTime);
         if(inDate != null) {
-            DateFormat outTimeFormat = new SimpleDateFormat("hh:mm a", Locale.US);
+            DateFormat outTimeFormat = new SimpleDateFormat("HH:mm", Locale.US);
             return outTimeFormat.format(inDate);
         } else {
             return inTime;
