@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,18 +21,26 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Get switch status (on or off) (is placed in Settings) - only send broadcast if is turned on
+        // Sending broadcast (the broadcast checks if going to continue to service or not:
+        Intent i = new Intent();
+        i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
+        sendBroadcast(i);
+
+        /* Get switch status (on or off) (is placed in Settings) - only send broadcast if is turned on
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean serviceOn = sharedPrefs.getBoolean("turn_app_on_off", true);
 
         if(serviceOn) {
+            Log.d("RECEIVER: ", "ON");
             Intent i = new Intent();
             i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
             sendBroadcast(i);
         }
         else {
+
+            Log.d("RECEIVER: ", "ELSE");
             //unregisterReceiver
-        }
+        }*/
     }
 
     @Override
