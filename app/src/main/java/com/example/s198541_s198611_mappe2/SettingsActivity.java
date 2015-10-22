@@ -30,9 +30,6 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
 
-            //Preference defaultMessage = findPreference("change_default_message");
-            //defaultMessage.setSummary();
-
             Preference langPref = findPreference("change_language");
             langPref.setSummary(Locale.getDefault().getDisplayLanguage());
             langPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
