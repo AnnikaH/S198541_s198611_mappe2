@@ -19,7 +19,7 @@
     <string name="edit_friend">Edit friend</string>
 
     <string name="notification_title">Birthday Service</string>
-    <string name="notification_message">You have sent a friend a birthday message!</string>
+    <string name="notification_message">Birthday message sent!</string>
     <string name="result_class_title">SMS sent</string>
     <string name="result_intro">The following friends have gotten a birthday message from you:</string>
     <string name="new_friend">Add a new friend</string>

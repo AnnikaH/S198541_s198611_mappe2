@@ -17,7 +17,7 @@
     <string name="edit_friend">Endre venn</string>
 
     <string name="notification_title">Bursdagstjenesten</string>
-    <string name="notification_message">Du har sendt en venn en bursdagshilsen!</string>
+    <string name="notification_message">Bursdagshilsen sendt!</string>
     <string name="result_class_title">SMS sendt</string>
     <string name="result_intro">Følgende venner har fått en bursdagsmelding fra deg:</string>
     <string name="new_friend">Legg til en ny venn</string>
