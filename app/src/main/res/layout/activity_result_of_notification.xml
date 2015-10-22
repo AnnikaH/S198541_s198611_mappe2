@@ -28,6 +28,7 @@
     </LinearLayout>
 
     <Button
+        android:paddingTop="@dimen/add_button_padding_top"
         android:text="@string/ok"
         android:textColor="@android:color/holo_blue_bright"
         android:layout_gravity="end"
