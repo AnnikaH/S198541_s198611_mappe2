@@ -15,14 +15,7 @@
     <com.example.s198541_s198611_mappe2.TimePickerDialog
         android:key="change_time"
         android:showDefault="true"
+        android:layout="@layout/custom_preference"
         android:title="@string/change_time_title" />
-
-    <!--<PreferenceCategory>
-        <com.example.s198541_s198611_mappe2.TimePickerDialog
-        android:defaultValue="12:00"
-        android:key="change_time"
-        android:showDefault="true"
-        android:title="@string/change_time_title" />
-    </PreferenceCategory>-->
 
 </PreferenceScreen>
