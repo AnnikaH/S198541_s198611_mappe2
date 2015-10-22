@@ -10,14 +10,6 @@
     tools:context=".ResultOfNotificationActivity"
     android:background="@color/background_color" >
 
-    <!--<TextView
-        android:gravity="center_horizontal"
-        android:textSize="@dimen/result_header_text_size"
-        android:paddingBottom="@dimen/result_header_padding_bottom"
-        android:text="@string/result_class_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
-
     <TextView
         android:text="@string/result_intro"
         android:layout_width="match_parent"
