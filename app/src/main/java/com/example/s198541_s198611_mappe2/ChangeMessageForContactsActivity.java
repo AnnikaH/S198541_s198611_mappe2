@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,17 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
 
     // OnClick save-button:
     public void saveMessageForContacts(View v) {
+        EditText edit = (EditText)findViewById(R.id.edit_message);
+        String newMessage = edit.getText().toString();
+        if(!chosenPersons.isEmpty() && newMessage != "")
+        {
+            for(int i = 0; i < chosenPersons.size(); i++) {
+                Person p = chosenPersons.get(i);
+
+                dbHandler.updatePerson(p);
+            }
+
+        }
 
     }
 
