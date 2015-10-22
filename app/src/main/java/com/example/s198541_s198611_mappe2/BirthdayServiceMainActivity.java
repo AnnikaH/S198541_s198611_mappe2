@@ -1,7 +1,9 @@
 package com.example.s198541_s198611_mappe2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,27 @@ import android.view.View;
 import android.widget.TextView;
 
 public class BirthdayServiceMainActivity extends AppCompatActivity {
+
+    private MyBroadcastReceiver myBroadcastReceiver;
+
+    // Get values from SharedPreferences (turn_app_on_off):
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Get switch status (on or off) (is placed in Settings) - only send broadcast if is turned on
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean serviceOn = sharedPrefs.getBoolean("turn_app_on_off", true);
+
+        if(serviceOn) {
+            Intent i = new Intent();
+            i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
+            sendBroadcast(i);
+        }
+        else {
+            //unregisterReceiver
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +46,6 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
 
         /*Switch serviceSwitch = (Switch) findViewById(R.id.startStopServiceSwitch);
 
-        // TODO: SetChecked to whatever the user last chose:
         serviceSwitch.setChecked(false);
 
         serviceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -34,20 +56,12 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
                     i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
                     sendBroadcast(i);
                 } else {
-                    // TODO: turn off the sms service
+                    // Turn off the sms service
 
                 }
 
             }
         });*/
-
-        // If need to check the current state before we display the screen
-        /*if(serviceSwitch.isChecked()){
-            switchStatus.setText("Switch is currently ON");
-        }
-        else {
-            switchStatus.setText("Switch is currently OFF");
-        }*/
     }
 
     // OnClick newMessageButton

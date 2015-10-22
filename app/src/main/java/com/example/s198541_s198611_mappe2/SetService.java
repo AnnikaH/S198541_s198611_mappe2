@@ -15,6 +15,8 @@ import java.util.Calendar;
 
 public class SetService extends Service {
 
+    private DBHandler dbHandler;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -34,9 +36,13 @@ public class SetService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Calendar cal = Calendar.getInstance();
 
+        dbHandler = new DBHandler(this);
+
         // Denne intenten som skal kjøres periodisk:
         Intent i = new Intent(this, MyService.class);
         // TODO: LEGGE KODEN FOR Å SENDE SMS I MyService?
+
+
 
         /* PendingIntent er en intent vi lager som vi vil at andre skal kjøre som oss
         på ett eller annet tidspunkt/med jevne mellomrom (det som må til for å sende

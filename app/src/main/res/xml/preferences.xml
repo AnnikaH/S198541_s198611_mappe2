@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference android:title="@string/change_language_title"
-        android:key="change_language" />
-
-    <EditTextPreference android:title="@string/change_default_message_title"
-        android:key="change_default_message"
-        android:textColor="@android:color/black" />
-
     <SwitchPreference android:title="@string/turn_app_on_off_title"
         android:key="turn_app_on_off" />
 
@@ -17,5 +10,12 @@
         android:showDefault="true"
         android:layout="@layout/custom_preference"
         android:title="@string/change_time_title" />
+
+    <EditTextPreference android:title="@string/change_default_message_title"
+        android:key="change_default_message"
+        android:textColor="@android:color/black" />
+
+    <Preference android:title="@string/change_language_title"
+        android:key="change_language" />
 
 </PreferenceScreen>

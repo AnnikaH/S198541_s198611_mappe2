@@ -1,8 +1,10 @@
 package com.example.s198541_s198611_mappe2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,13 +26,13 @@ public class NewContactActivity extends AppCompatActivity {
     DBHandler dbHandler;
     String storedDefaultMessage;
 
-    // Get values from SharedPreferences (defaultMessage):
+    // Get values from SharedPreferences (change_default_message):
     @Override
     protected void onResume() {
         super.onResume();
 
-        storedDefaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getString("defaultMessage", ""));
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        storedDefaultMessage = sharedPrefs.getString("change_default_message", "");
 
         if(storedDefaultMessage.equals(""))
             storedDefaultMessage = getString(R.string.our_default_message);

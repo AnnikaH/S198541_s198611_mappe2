@@ -15,69 +15,12 @@ import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    String defaultMessage;
-    String timeOfDay;
-    boolean serviceOn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PrefsFragment()).commit();
-
-        //TODO: På change_time: android:summary="@string/time_picker_dialog_summary"
-    }
-
-    // Store in SharedPreferences:
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        if(defaultMessage.equals("")) {
-            defaultMessage = getString(R.string.our_default_message);
-        }
-
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putString("timeOfDay", timeOfDay)
-                .putString("defaultMessage", defaultMessage)
-                .putBoolean("serviceOn", serviceOn)
-                .commit();
-    }
-
-    // Get values from SharedPreferences:
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        timeOfDay = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getString("timeOfDay", ""));
-        defaultMessage = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getString("defaultMessage", ""));
-        serviceOn = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("serviceOn", true));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_birthday_service_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
     }
 
     public static class PrefsFragment extends PreferenceFragment {
@@ -86,6 +29,9 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
+
+            //Preference defaultMessage = findPreference("change_default_message");
+            //defaultMessage.setSummary();
 
             Preference langPref = findPreference("change_language");
             langPref.setSummary(Locale.getDefault().getDisplayLanguage());
