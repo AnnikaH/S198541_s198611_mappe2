@@ -80,6 +80,7 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CheckedTextView item = (CheckedTextView) view;
+                item.setCheckMarkTintList();
                 if(item.isChecked()) {
                     item.setChecked(false);
                     removeId(id);   /* removing this id from the ids ArrayList (this ArrayList is

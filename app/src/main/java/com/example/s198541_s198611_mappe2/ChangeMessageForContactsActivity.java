@@ -64,11 +64,15 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
     public void saveMessageForContacts(View v) {
         EditText edit = (EditText)findViewById(R.id.edit_message);
         String newMessage = edit.getText().toString();
+        if(!newMessage.matches(".+")) {
+            edit.setError(getString(R.string.message_error_message));
+            return;
+        }
         if(!chosenPersons.isEmpty() && newMessage != "")
         {
             for(int i = 0; i < chosenPersons.size(); i++) {
                 Person p = chosenPersons.get(i);
-
+                p.setMessage(newMessage);
                 dbHandler.updatePerson(p);
             }
 
