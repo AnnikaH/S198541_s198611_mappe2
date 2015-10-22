@@ -44,7 +44,7 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
                 for(int i = 0; i < chosenPersons.size(); i++) {
                     Person p = chosenPersons.get(i);
 
-                    // Får ut navnet på personen i loggen (fjerne senere):
+                    // Getting the name of the person in the log (remove later):
                     Log.d("NAVN: ", p.getName());
                 }
             }
