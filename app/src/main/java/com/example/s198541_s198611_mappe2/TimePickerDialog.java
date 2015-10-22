@@ -3,6 +3,7 @@ package com.example.s198541_s198611_mappe2;
 import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.TimePicker;
 
@@ -17,6 +18,7 @@ public class TimePickerDialog extends DialogPreference {
     public TimePickerDialog (Context context) {
         this(context, null);
         this.context=context;
+
     }
 
     public TimePickerDialog (Context context, AttributeSet attrs) {
@@ -26,12 +28,11 @@ public class TimePickerDialog extends DialogPreference {
 
     public TimePickerDialog (Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         timeListener = (Listener) context;
         this.context = context;
-
         setPositiveButtonText(getContext().getString(R.string.set));
         setNegativeButtonText(getContext().getString(R.string.cancel));
+
     }
 
     public void setListener(Listener listener){
