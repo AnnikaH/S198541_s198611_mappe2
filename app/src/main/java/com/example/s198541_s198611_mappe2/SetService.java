@@ -11,12 +11,16 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 // Is going to do something regularly: send SMS once a day
 // This class is going to set AlarmManager to run MyService (class) regularly
@@ -29,41 +33,43 @@ public class SetService extends Service {
         return null;
     }
 
-    /* Når jeg klikker på knappen skal jeg. Hvert 10. sekund vil det komme opp
-    I MinService uansett hvor man befinner seg på mobilen.
-    Det er det som skal til for at vi skal kunne gå i en database og sjekke om
-    noen har bursdag. */
-    // NB!!:
-    /* HVIS MAN SKAL KUNNE SKRU AV SERVICEN:
-    * GJØR SAMME KODE som i onStartCommand, Lager en pending intent og så tar man
-    * alarm.cancel(sender med PendingIntenten) - kan lage en ekstra knapp og se at dette
-    * fungerer! : */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Calendar cal = Calendar.getInstance();
+        // Get if sending sms is turned on or off (set in Settings):
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean serviceOn = sharedPrefs.getBoolean("turn_app_on_off", true);
+
+        if(!serviceOn) {
+            // Then we want to cancel the sms service:
+            Intent i = new Intent(this, MyService.class);
+            PendingIntent pIntent = PendingIntent.getService(this, 0, i, 0);
+            AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarm.cancel(pIntent);
+
+            Log.d("ALARM: ", "CANCELED");
+
+            return super.onStartCommand(intent, flags, startId);
+        }
 
         // Get time for sending sms (set in Settings):
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String time = sharedPrefs.getString("change_time", "");
+        String[] parts = time.split(":");
+        int chosenHour = Integer.parseInt(parts[0]);
+        int chosenMinute = Integer.parseInt(parts[1]);
 
-        // Denne intenten som skal kjøres periodisk:
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, chosenHour);
+        cal.set(Calendar.MINUTE, chosenMinute);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        // Intent to the class/code that will run periodically:
         Intent i = new Intent(this, MyService.class);
-
-        /* PendingIntent er en intent vi lager som vi vil at andre skal kjøre som oss
-        på ett eller annet tidspunkt/med jevne mellomrom (det som må til for å sende
-        en SMS en gang i døgnet) */
         PendingIntent pIntent = PendingIntent.getService(this, 0, i, 0);
-        // i er intenten vi opprettet
 
+        // Run code in MyService once each day from the time set by the user:
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60 * 1000, pIntent);
-
-        // alarm.setRepeating(...);
-
-        // hvis skal repeteres hvert 10. sekund setter vi ved 10 * 1000
-        // hvis skal repeteres en gang i minuttet: 60 * 1000 ?
-
-        // TODO: ENDRE TIL Å GJENTAS PÅ DET ANGITTE KLOKKESLETTET HVER DAG SOM BRUKER HAR SATT + KJØRE NÅR STARTER OPP MOBILEN
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pIntent);
 
         return super.onStartCommand(intent, flags, startId);
     }
