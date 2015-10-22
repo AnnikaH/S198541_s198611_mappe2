@@ -12,10 +12,10 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+        /*if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             // runs when the phone starts up
 
-        }
+        }*/
 
         Toast.makeText(context, "In BroadcastReceiver", Toast.LENGTH_SHORT).show();
 
@@ -32,6 +32,5 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         }
 
         // else do nothing
-
     }
 }
