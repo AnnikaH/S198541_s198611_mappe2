@@ -50,6 +50,7 @@
     <string name="parse_id_edited_error_message">Det oppstod en feil! Infoen til vennen din ble ikke endret!</string>
     <string name="yes">Ja</string>
     <string name="delete_warning_message">Vil du virkelig slette denne vennen?</string>
+    <string name="plus">+</string>
 
     <!-- Settings -->
     <string name="change_time_title">Tidspunkt for SMS-utsendelse</string>
