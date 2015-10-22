@@ -6,6 +6,4 @@
     android:background="@color/background_color"
     tools:context=".SettingsActivity">
 
-
-
 </LinearLayout>

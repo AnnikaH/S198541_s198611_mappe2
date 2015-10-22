@@ -11,6 +11,8 @@
     <string name="edit_message">Endre melding</string>
     <string name="birthdays">Bursdager</string>
 
+    <string name="edit_message_all_contacts">Endre meldingen til alle valgte venner:</string>
+
     <string name="edit_friend">Endre venn</string>
 
     <string name="in_result_class">Du er i ResultOfNotificationActivity</string>
@@ -30,10 +32,11 @@
 
     <!-- ............... XML for Endre/Ny melding aktiviteten ............ -->
 
-    <string name="choose_receiver">Til</string>
+    <string name="choose_receiver">Velg venner</string>
     <string name="save">Lagre</string>
     <string name="choose_receiver_head">Velg venn</string>
     <string name="ok">Ok</string>
+    <string name="chosen_contacts_label">Valgte venner:</string>
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Navn må fylles inn!</string>

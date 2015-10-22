@@ -59,6 +59,16 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
         startActivity(i);
     }
 
+    // OnClick save-button:
+    public void saveMessageForContacts(View v) {
+
+    }
+
+    // OnClick cancel-button:
+    public void cancel(View v) {
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

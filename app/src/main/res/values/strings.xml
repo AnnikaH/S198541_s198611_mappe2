@@ -13,6 +13,8 @@
     <string name="edit_message">Edit message</string>
     <string name="birthdays">Birthdays</string>
 
+    <string name="edit_message_all_contacts">Change the message for all chosen friends:</string>
+
     <string name="edit_friend">Edit friend</string>
 
     <string name="in_result_class">You are in ResultOfNotificationActivity</string>
@@ -31,10 +33,11 @@
     <string name="person_added_message">was added!</string>
 
     <!-- ................ XML Strings on Edit/New Message activity............-->
-    <string name="choose_receiver">To</string>
+    <string name="choose_receiver">Choose friends</string>
     <string name="save">Save</string>
     <string name="choose_receiver_head">Choose Friend</string>
     <string name="ok">Ok</string>
+    <string name="chosen_contacts_label">Chosen friends:</string>
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Name must be filled in!</string>
