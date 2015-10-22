@@ -198,7 +198,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
         if(cursor != null) {
-            if(cursor.moveToFirst()) {  // finner bare den fÃ¸rste forekomsten (ok siden skal vÃ¦re unik)
+            if(cursor.moveToFirst()) {
                 Person person = new Person(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                         cursor.getString(3), cursor.getString(4));
 

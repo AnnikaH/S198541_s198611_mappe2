@@ -57,6 +57,9 @@ public class SetService extends Service {
 
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60 * 1000, pIntent);
+
+        // alarm.setRepeating(...);
+
         // hvis skal repeteres hvert 10. sekund setter vi ved 10 * 1000
         // hvis skal repeteres en gang i minuttet: 60 * 1000 ?
 
