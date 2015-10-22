@@ -74,10 +74,7 @@
             <intent-filter>
                 <action
                     android:name="com.example.s198541_s198611_mappe2.myBroadcast"/>
-
-                <!-- KAN KALLE DENNE (NAME) AKKURAT DET JEG VIL! MÃƒâ€¦ BARE STEMME
-                 OVERENS MED NAVNET I HOVEDKLASSEN (ServiceActivity) -->
-
+                    <!-- Can call this (name) whatever you want -->
             </intent-filter>
         </receiver>
 

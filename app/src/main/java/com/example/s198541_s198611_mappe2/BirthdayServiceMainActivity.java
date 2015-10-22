@@ -21,10 +21,13 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        /*
         // Sending broadcast (the broadcast checks if going to continue to service or not:
         Intent i = new Intent();
         i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
-        sendBroadcast(i);
+        sendBroadcast(i);*/
+
+
 
         /* Get switch status (on or off) (is placed in Settings) - only send broadcast if is turned on
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -52,6 +55,15 @@ public class BirthdayServiceMainActivity extends AppCompatActivity {
         TextView textViewCustom = (TextView) findViewById(R.id.front_app_name);
         Typeface bebasNeueFont = Typeface.createFromAsset(getAssets(), "fonts/bebasneue.ttf");
         textViewCustom.setTypeface(bebasNeueFont);
+
+        // Set default to true (switch on):
+        //PreferenceManager.setDefaultValues(this, R.xml.preferences, true);
+        //PreferenceManager.setDefaultValues(this, "turn_app_on_off", MODE_PRIVATE, R.xml.preferences, true);
+
+        // Sending broadcast (the broadcast checks if going to continue to service or not:
+        Intent i = new Intent();
+        i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
+        sendBroadcast(i);
 
         /*Switch serviceSwitch = (Switch) findViewById(R.id.startStopServiceSwitch);
 

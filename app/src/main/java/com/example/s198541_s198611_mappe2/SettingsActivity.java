@@ -32,18 +32,24 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
 
-            /*final Preference switchPref = findPreference("turn_app_on_off");
+            Preference switchPref = findPreference("turn_app_on_off");
             switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     boolean checked = ((SwitchPreference) preference).isChecked();
 
-                    if(checked) {
-                        Log.d("RECEIVER: ", "ON");
-                        Intent i = new Intent();
-                        i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
-                        sendBroadcast(i);
-                        return true;
+                    // Sending broadcast (the broadcast checks if going to continue to service or not:
+                    Intent i = new Intent();
+                    i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
+                    getActivity().sendBroadcast(i);
+
+                    return true;
+
+                    //getActivity().finish(); // to start up main activity which starts a broadcast
+                    //return true;
+
+                    /*if(checked) {
+
                     }
                     else {
                         // turn off
@@ -52,9 +58,9 @@ public class SettingsActivity extends AppCompatActivity {
                         // unregister receiver?
 
                         return false;
-                    }
+                    }*/
                 }
-            });*/
+            });
 
             Preference langPref = findPreference("change_language");
             langPref.setSummary(Locale.getDefault().getDisplayLanguage());

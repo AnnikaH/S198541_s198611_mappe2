@@ -2,7 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference android:title="@string/turn_app_on_off_title"
-        android:key="turn_app_on_off" />
+        android:key="turn_app_on_off"
+        android:defaultValue="true" />
 
     <!-- Custom TimePickerDialog.java extends DialogPreference: -->
     <com.example.s198541_s198611_mappe2.TimePickerDialog

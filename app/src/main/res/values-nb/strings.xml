@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Bursdagstjenesten</string>
     <string name="settings">Innstillinger</string>
+    <string name="go_to_switch">Start/stopp SMS service ></string>
 
     <string name="our_default_message">Gratulerer med dagen!</string>
 
@@ -53,7 +54,6 @@
     <string name="parse_id_edited_error_message">Det oppstod en feil! Infoen til vennen din ble ikke endret!</string>
     <string name="yes">Ja</string>
     <string name="delete_warning_message">Vil du virkelig slette denne vennen?</string>
-    <string name="plus">+</string>
 
     <!-- Settings -->
     <string name="change_time_title">Tidspunkt for SMS-utsendelse</string>

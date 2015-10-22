@@ -19,6 +19,17 @@
         android:textSize="@dimen/header_text_size"
         android:textColor="@color/header_text_color"
         android:paddingBottom="@dimen/front_header_padding_bottom" />
+    <!--android:paddingTop="@dimen/front_header_padding_top"-->
+
+    <!--<Button
+        android:background="@color/background_color"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/go_to_switch"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToSettings"
+        android:textAllCaps="false" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
