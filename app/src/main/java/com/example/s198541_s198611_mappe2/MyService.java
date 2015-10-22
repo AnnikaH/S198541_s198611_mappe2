@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -38,6 +39,9 @@ public class MyService extends Service {
 
         // just return if no one has birthday:
         if(personsWithBirthday.size() == 0) {
+
+            Log.d("BIRTH CHECK MYSERVICE:", "NO ONE HAS BIRTDAY");
+
             return super.onStartCommand(intent, flags, startId);
         }
 
