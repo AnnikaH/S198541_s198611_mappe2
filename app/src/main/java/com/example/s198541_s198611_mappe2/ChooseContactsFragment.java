@@ -21,18 +21,36 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ChooseContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
         SearchView.OnQueryTextListener {
 
-    LoaderManager loaderManager;
-    CursorLoader cursorLoader;
-    SimpleCursorAdapter mAdapter;
-    DBHandler dbHandler;
-    String TAG = "LOADER";
-    SearchView searchView;
+    private LoaderManager loaderManager;
+    private CursorLoader cursorLoader;
+    private SimpleCursorAdapter mAdapter;
+    private DBHandler dbHandler;
+    private String TAG = "LOADER";
+    private SearchView searchView;
+    private ArrayList<Long> ids;
 
     public ChooseContactsFragment() {
 
+    }
+
+    // Called from onItemClick:
+    private void addId(long id) {
+        ids.add(id);
+    }
+
+    // Called from onItemClick:
+    private void removeId(long id) {
+        ids.remove(id);
+    }
+
+    // Called from ChooseContactsActivity:
+    public ArrayList<Long> getCheckedIds() {
+        return ids;
     }
 
     @Nullable
@@ -49,21 +67,29 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
 
         dbHandler = new DBHandler(getActivity().getBaseContext());
 
+        ids = new ArrayList<>();
+
         String[] uiBindFrom = {DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
         int[] uiBindTo = {android.R.id.text1, android.R.id.text2};
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_multiple_choice, null, uiBindFrom, uiBindTo, 0);
-        final ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
+        ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CheckedTextView item = (CheckedTextView) view;
-                if(item.isChecked())
+                if(item.isChecked()) {
                     item.setChecked(false);
-                else
+                    removeId(id);   /* removing this id from the ids ArrayList (this ArrayList is
+                    eventually sent to ChooseContactsActivity and further on to ChangeMessageForContactsActivity) */
+                }
+                else {
                     item.setChecked(true);
+                    addId(id);  /* adding this id to the ids ArrayList (this ArrayList is
+                    eventually sent to ChooseContactsActivity and further on to ChangeMessageForContactsActivity) */
+                }
             }
         });
 
