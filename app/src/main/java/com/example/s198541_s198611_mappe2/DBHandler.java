@@ -78,6 +78,39 @@ public class DBHandler extends SQLiteOpenHelper {
         return persons;
     }
 
+    public List<Person> getAllPersonsWithBirthday(int day, int month) {
+        List<Person> persons = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_PERSONS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Person person = new Person();
+                person.set_ID(cursor.getInt(0));
+                person.setName(cursor.getString(1));
+                person.setPhoneNumber(cursor.getString(2));
+                person.setBirthday(cursor.getString(3));
+                person.setMessage(cursor.getString(4));
+
+                // Checking birthday (if match input parameters):
+
+                String birthday = person.getBirthday();
+                String[] parts = birthday.split("-");
+                int birthDay = Integer.parseInt(parts[2]);
+                int birthMonth = Integer.parseInt(parts[1]);
+
+                if(birthMonth == month && birthDay == day) {
+                    persons.add(person);
+                }
+            } while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return persons;
+    }
+
     public List<Person> getAllPersonsFromName(String namePart) {
         List<Person> persons = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_PERSONS + " WHERE " + KEY_NAME + " LIKE " + namePart + "%";

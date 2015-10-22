@@ -9,17 +9,19 @@ import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.telephony.SmsManager;
 import android.util.Log;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 // Is going to do something regularly: send SMS once a day
 // This class is going to set AlarmManager to run MyService (class) regularly
 
 public class SetService extends Service {
-
-    private DBHandler dbHandler;
 
     @Nullable
     @Override
@@ -40,19 +42,12 @@ public class SetService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Calendar cal = Calendar.getInstance();
 
-        dbHandler = new DBHandler(this);
-
         // Get time for sending sms (set in Settings):
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String time = sharedPrefs.getString("change_time", "");
 
-        Log.d("TIME: ", time);
-
         // Denne intenten som skal kjøres periodisk:
         Intent i = new Intent(this, MyService.class);
-        // TODO: LEGGE KODEN FOR Å SENDE SMS I MyService?
-
-
 
         /* PendingIntent er en intent vi lager som vi vil at andre skal kjøre som oss
         på ett eller annet tidspunkt/med jevne mellomrom (det som må til for å sende
