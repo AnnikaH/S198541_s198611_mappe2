@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Switch;
 
 import java.util.Locale;
 
@@ -32,17 +33,28 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
 
-            Preference switchPref = findPreference("turn_app_on_off");
+            final Preference switchPref = findPreference("turn_app_on_off");
             switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    boolean checked = ((SwitchPreference) preference).isChecked();
+                    // boolean checked = ((SwitchPreference) preference).isChecked();
 
                     // Sending broadcast (the broadcast checks if going to continue to service or not:
                     Intent i = new Intent();
                     i.setAction("com.example.s198541_s198611_mappe2.myBroadcast");
                     getActivity().sendBroadcast(i);
 
+                    return true;
+                }
+            });
+
+            // When the time for the sms is changed we need to change the switch to be off so the user
+            // turns it on again and with that sends the broadcast:
+            Preference editPref = findPreference("change_time");
+            editPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    ((SwitchPreference) switchPref).setChecked(false);
                     return true;
                 }
             });
