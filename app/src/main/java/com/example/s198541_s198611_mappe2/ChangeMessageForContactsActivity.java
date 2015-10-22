@@ -74,6 +74,7 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
 
         }
 
+
     }
 
     // OnClick cancel-button:
