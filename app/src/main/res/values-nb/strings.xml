@@ -16,10 +16,10 @@
 
     <string name="edit_friend">Endre venn</string>
 
-    <string name="in_result_class">Du er i ResultOfNotificationActivity</string>
-    <string name="notification_title">Tittel</string>
-    <string name="notification_message">Melding</string>
-    <string name="result_class_title">Resultat-klasse-tittel</string>
+    <string name="notification_title">Bursdagstjenesten</string>
+    <string name="notification_message">Du har sendt en venn en bursdagshilsen!</string>
+    <string name="result_class_title">SMS sendt</string>
+    <string name="result_intro">Følgende venner har fått en bursdagsmelding fra deg:</string>
     <string name="new_friend">Legg til en ny venn</string>
     <string name="set_time">Sett tid for avsending ></string>
 

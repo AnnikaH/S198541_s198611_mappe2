@@ -18,10 +18,10 @@
 
     <string name="edit_friend">Edit friend</string>
 
-    <string name="in_result_class">You are in ResultOfNotificationActivity</string>
-    <string name="notification_title">Title</string>
-    <string name="notification_message">Message</string>
-    <string name="result_class_title">Result class title</string>
+    <string name="notification_title">Birthday Service</string>
+    <string name="notification_message">You have sent a friend a birthday message!</string>
+    <string name="result_class_title">SMS sent</string>
+    <string name="result_intro">The following friends have gotten a birthday message from you:</string>
     <string name="new_friend">Add a new friend</string>
     <string name="set_time">Set time for sending messages ></string>
 

@@ -4,6 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="header_text_size">36sp</dimen>
+    <dimen name="result_header_text_size">20sp</dimen>
+    <dimen name="result_header_padding_bottom">10dp</dimen>
 
     <dimen name="frontpage_margin_top">60dp</dimen>
     <dimen name="front_button_width">100dp</dimen>

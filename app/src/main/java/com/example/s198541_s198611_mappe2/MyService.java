@@ -31,7 +31,7 @@ public class MyService extends Service {
 
         Calendar cal = Calendar.getInstance();
         int dayNow = cal.get(Calendar.DAY_OF_MONTH);
-        int monthNow = cal.get(Calendar.MONTH);
+        int monthNow = cal.get(Calendar.MONTH) + 1; // because of index month different than day f.ex.
 
         dbHandler = new DBHandler(this);
 
@@ -45,6 +45,9 @@ public class MyService extends Service {
             return super.onStartCommand(intent, flags, startId);
         }
 
+        // int array of ids for all the persons you're sending sms to (send this info to ResultOfNotificationActivity):
+        int[] personsWithBirthdayIds = new int[personsWithBirthday.size()];
+
         // if there is someone who has birthday today:
         for(int i = 0; i < personsWithBirthday.size(); i++) {
             // send a sms to all of these:
@@ -53,11 +56,16 @@ public class MyService extends Service {
 
             SmsManager manager = SmsManager.getDefault();
             manager.sendTextMessage(phone, null, message, null, null);
+
+            personsWithBirthdayIds[i] = personsWithBirthday.get(i).get_ID();
         }
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         Intent i = new Intent(this, ResultOfNotificationActivity.class);
+
+        i.putExtra("PERSONIDS", personsWithBirthdayIds);
+
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, i, 0);
 
         /* I MAPPE 2??: GJØRE SLIK AT MAN FÅR EN NOTIFICATION PÅ MOBILEN OM AT

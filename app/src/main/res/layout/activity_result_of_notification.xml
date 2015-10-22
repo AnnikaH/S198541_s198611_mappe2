@@ -7,11 +7,30 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context=".ResultOfNotificationActivity" >
+    tools:context=".ResultOfNotificationActivity"
+    android:background="@color/background_color" >
 
     <TextView
-        android:text="@string/in_result_class"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/result_header_text_size"
+        android:paddingBottom="@dimen/result_header_padding_bottom"
+        android:text="@string/result_class_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="@string/result_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/sms_information_layout"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- Filled in with java code -->
+
+    </LinearLayout>
 
 </LinearLayout>
