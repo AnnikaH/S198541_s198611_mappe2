@@ -52,7 +52,7 @@
 
     <!-- Settings -->
     <string name="change_time_title">Tidspunkt for SMS-utsendelse</string>
-    <string name="change_default_message_title">Default SMS-tekst</string>
+    <string name="change_default_message_title">Standard SMS-tekst</string>
     <string name="turn_app_on_off_title">SMS-utsendelse</string>
     <string name="change_language_title">Språk</string>
     <string name="time_picker_dialog_summary">Sett tidspunkt</string>
