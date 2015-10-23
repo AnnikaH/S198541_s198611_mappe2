@@ -45,6 +45,7 @@ public class BirthdaysFragment extends Fragment implements LoaderManager.LoaderC
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_2, null, uiBindFrom, uiBindTo, 0);
+
         listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         loaderManager.initLoader(0, null, this);

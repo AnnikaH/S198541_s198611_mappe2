@@ -10,7 +10,7 @@
 
     <string name="friends">Friends</string>
     <string name="edit_message">Edit message</string>
-    <string name="birthdays">Upcoming birthdays</string>
+    <string name="birthdays">Birthday list</string>
 
     <string name="edit_message_all_contacts">Change the message for all chosen friends:</string>
 

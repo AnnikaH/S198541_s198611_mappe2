@@ -43,6 +43,10 @@ public class PersonCP extends ContentProvider {
                     selectionArgs, null, null, sortOrder);
         }
         else {
+            /*if(sortOrder.equals(DBHandler.KEY_BIRTHDAY)) {
+                return dbHandler.getAllPersonsOrderByBirthDayAndMonth();
+            }*/
+
             cur = db.query(DBHandler.TABLE_PERSONS, projection, selection, selectionArgs, null, null, sortOrder);
         }
 

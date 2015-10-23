@@ -110,6 +110,14 @@ public class DBHandler extends SQLiteOpenHelper {
         return persons;
     }
 
+    /* Trying to order by month and day when stored as string in database..
+    public Cursor getAllPersonsOrderByBirthDayAndMonth() {
+        String selectQuery = "SELECT * FROM " + TABLE_PERSONS + " ORDER BY SUBSTR(" + KEY_BIRTHDAY +
+                ", 6, LENGTH(" + KEY_BIRTHDAY + ")-6";
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery(selectQuery, null);
+    }*/
+
     public List<Person> getAllPersonsFromName(String namePart) {
         List<Person> persons = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_PERSONS + " WHERE " + KEY_NAME + " LIKE " + namePart + "%";
