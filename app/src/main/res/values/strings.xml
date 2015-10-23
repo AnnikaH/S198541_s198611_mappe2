@@ -4,7 +4,7 @@
 
     <string name="app_name">Birthday Service</string>
     <string name="settings">Settings</string>
-    <string name="go_to_switch"><u>Start/stop SMS service ><</u>/string>
+    <string name="go_to_switch"><u>Start/stop SMS service ></u></string>
 
     <string name="our_default_message">Happy Birthday!</string>
 
