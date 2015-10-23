@@ -49,7 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
             });
 
             // When the time for the sms is changed we need to change the switch to be off so the user
-            // turns it on again and with that sends the broadcast:
+            // turns it on again and with that activates a new broadcast/updates the broadcast:
             Preference editPref = findPreference("change_time");
             editPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
