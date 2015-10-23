@@ -33,7 +33,7 @@
     <string name="ok">Ok</string>
     <string name="chosen_contacts_label">Chosen friends:</string>
     <string name="message_changed">Message has been changed for these friends!</string>
-    <string name="no_contacts_chosen_error_message">You haven't chosen any friends!</string>
+    <string name="no_contacts_chosen_error_message">You haven\'t chosen any friends!</string>
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Name must be filled in!</string>
