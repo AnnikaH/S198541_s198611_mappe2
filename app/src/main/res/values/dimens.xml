@@ -7,7 +7,7 @@
     <dimen name="result_header_text_size">16sp</dimen>
     <dimen name="result_header_padding_bottom">10dp</dimen>
 
-    <dimen name="frontpage_margin_top">60dp</dimen>
+    <dimen name="front_page_margin_top">60dp</dimen>
     <dimen name="front_button_width">100dp</dimen>
     <dimen name="front_button_height">100dp</dimen>
     <dimen name="front_button_margin">5dp</dimen>
@@ -18,8 +18,7 @@
     <dimen name="front_header_padding_top">10dp</dimen>
     <dimen name="front_header_padding_top_land">15dp</dimen>
 
-    <dimen name="list_view_padding_top">45dp</dimen>
-    <dimen name="search_view_width">240dp</dimen>
+    <dimen name="list_view_padding_top">46dp</dimen>
     <dimen name="add_button_height">40dp</dimen>
     <dimen name="add_button_padding_top">5dp</dimen>
     <dimen name="add_button_margin_top">7dp</dimen>
@@ -28,6 +27,8 @@
 
     <!-- Button New/Edit Message -->
     <dimen name="choose_receiver_button_width">250dp</dimen>
+
+    <dimen name="ok_button_margin_right">11dp</dimen>
 
     <dimen name="plus_button_margin_top">13dp</dimen>
     <dimen name="plus_button_text_size">20sp</dimen>

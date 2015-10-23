@@ -23,15 +23,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ChooseContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
-        SearchView.OnQueryTextListener {
+public class ChooseContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private LoaderManager loaderManager;
     private CursorLoader cursorLoader;
     private SimpleCursorAdapter mAdapter;
     private DBHandler dbHandler;
     private String TAG = "LOADER";
-    private SearchView searchView;
     private ArrayList<Long> ids;
 
     public ChooseContactsFragment() {
@@ -64,7 +62,6 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
         super.onActivityCreated(savedInstanceState);
 
         loaderManager = getActivity().getLoaderManager();
-
         dbHandler = new DBHandler(getActivity().getBaseContext());
 
         ids = new ArrayList<>();
@@ -94,27 +91,15 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        searchView = (SearchView) getActivity().findViewById(R.id.search_view);
-
-        int idSearchViewInputText = searchView.getContext().getResources().getIdentifier("android:id/search_src_text",
-                null, null);
-        TextView searchViewText = (TextView) searchView.findViewById(idSearchViewInputText);
-        searchViewText.setHintTextColor(Color.WHITE);
-        searchViewText.setTextColor(Color.WHITE);
-
-        searchView.setOnQueryTextListener(this);
-
         loaderManager.initLoader(0, null, this);
     }
 
     public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
-
         String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
         cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
                 null, null, DBHandler.KEY_NAME);
         return cursorLoader;
     }
-
 
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (mAdapter != null && cursor != null)
@@ -129,16 +114,5 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
             mAdapter.swapCursor(null);
         else
             Log.v(TAG, "OnLoadFinished: mAdapter is null");
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        mAdapter.getFilter().filter(newText);
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
     }
 }
