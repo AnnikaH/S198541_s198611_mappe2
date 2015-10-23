@@ -10,7 +10,6 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Calendar;

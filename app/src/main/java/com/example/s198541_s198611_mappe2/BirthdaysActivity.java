@@ -2,8 +2,6 @@ package com.example.s198541_s198611_mappe2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class BirthdaysActivity extends AppCompatActivity {
 

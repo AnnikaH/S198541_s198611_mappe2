@@ -1,15 +1,11 @@
 package com.example.s198541_s198611_mappe2;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.text.DateFormat;
@@ -79,7 +75,7 @@ public class TimePickerDialog extends DialogPreference {
     }
 
     @Override
-    protected void onBindDialogView(View v) {
+    protected void onBindDialogView(@NonNull View v) {
         super.onBindDialogView(v);
         picker.setCurrentHour(mHour);
         picker.setCurrentMinute(mMinute);
