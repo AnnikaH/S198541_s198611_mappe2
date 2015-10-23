@@ -11,7 +11,7 @@
         android:layout_width="@dimen/plus_button_width"
         android:layout_height="@dimen/plus_button_height"
         android:layout_marginTop="@dimen/plus_button_margin_top"
-        android:layout_marginEnd="@dimen/ok_button_margin_right"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:text="@string/ok"
         android:layout_gravity="end"
         android:textColor="@android:color/holo_blue_bright"
