@@ -8,10 +8,9 @@
     android:background="@color/background_color" >
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width=""
         android:layout_height="@dimen/plus_button_height"
         android:layout_marginTop="@dimen/plus_button_margin_top"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:text="@string/ok"
         android:layout_gravity="end"

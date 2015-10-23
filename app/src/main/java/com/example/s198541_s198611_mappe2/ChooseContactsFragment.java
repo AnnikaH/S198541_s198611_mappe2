@@ -5,6 +5,7 @@ import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -66,7 +67,7 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_multiple_choice, null, uiBindFrom, uiBindTo, 0);
-        ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
+        final ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
