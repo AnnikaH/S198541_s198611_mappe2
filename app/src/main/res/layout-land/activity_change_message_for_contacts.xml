@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ChangeMessageForContactsActivity"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/background_color" >
+
+    <Button
+        android:text="@string/choose_receiver"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/choose_button_height"
+        android:onClick="OpenContact"
+        android:id="@+id/select_contact"
+        android:background="@drawable/custom_button" />
+
+    <TextView
+        android:paddingTop="@dimen/add_button_padding_top"
+        android:layout_marginTop="@dimen/add_button_margin_top"
+        android:text="@string/chosen_contacts_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Use this for printing out which contacts the user has chosen: -->
+    <TextView
+        android:paddingTop="@dimen/add_button_padding_top"
+        android:id="@+id/text_view_for_showing_chosen_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/header_text_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:labelFor="@+id/edit_message"
+            android:text="@string/edit_message_all_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_message"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="@dimen/add_button_margin_top" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:textColor="@color/android_blue"
+                android:text="@string/save"
+                android:onClick="saveMessageForContacts"
+                android:layout_marginEnd="@dimen/save_button_margin_right" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:textColor="@color/android_blue"
+                android:text="@string/cancel"
+                android:onClick="cancel" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

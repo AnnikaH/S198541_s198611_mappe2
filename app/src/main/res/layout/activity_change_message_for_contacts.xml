@@ -18,7 +18,6 @@
         android:onClick="OpenContact"
         android:id="@+id/select_contact"
         android:background="@drawable/custom_button" />
-    <!-- android:layout_width="@dimen/choose_receiver_button_width" -->
 
     <TextView
         android:paddingTop="@dimen/add_button_padding_top"
