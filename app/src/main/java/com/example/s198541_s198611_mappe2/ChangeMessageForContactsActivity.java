@@ -50,7 +50,7 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
                     // Getting the name of the person in the log (remove later):
                     Log.d("NAVN: ", p.getName());
                 }
-                textviewChosenContacts.setText(p);
+                textviewChosenContacts.setText(p.getName());
 
             }
 
