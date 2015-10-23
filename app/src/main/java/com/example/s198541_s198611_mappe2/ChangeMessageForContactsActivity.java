@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,8 +82,12 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
                 p.setMessage(newMessage);
                 dbHandler.updatePerson(p);
             }
+            Toast.makeText(this, getString(R.string.messaged_changed), Toast.LENGTH_SHORT).show();
+            finish();
 
         }
+
+
 
 
     }

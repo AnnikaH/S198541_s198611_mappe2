@@ -35,6 +35,7 @@
     <string name="choose_receiver_head">Choose Friend</string>
     <string name="ok">Ok</string>
     <string name="chosen_contacts_label">Chosen friends:</string>
+    <string name="messaged_changed">Message has been changed!</string>
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Name must be filled in!</string>
