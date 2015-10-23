@@ -7,6 +7,13 @@
     tools:context=".ChooseContactsActivity"
     android:background="@color/background_color" >
 
+    <!-- SearchView -->
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="@dimen/search_view_width"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/text_search_field" />
 
     <Button
         android:layout_width="@dimen/plus_button_width"
