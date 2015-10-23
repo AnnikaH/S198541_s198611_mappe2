@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +29,8 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
 
         // Getting ids (for the persons chosen in ChooseContactsFragment) from the intent-data sent
         // from ChooseContactsActivity:
-
         ArrayList<Integer> chosenIds = getIntent().getIntegerArrayListExtra("IDS");
+        TextView textviewChosenContacts = (TextView) findViewById(R.id.text_view_for_showing_chosen_contacts);
 
         if(chosenIds != null) {
 
@@ -38,16 +39,19 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
             for(int i = 0; i < chosenIds.size(); i++) {
                 Person p = dbHandler.getPerson(chosenIds.get(i));
                 chosenPersons.add(p);
+
+
             }
 
             // Later (not necessarily here) we can go through chosenPersons (ArrayList) like this:
             if(!chosenPersons.isEmpty()) {
                 for(int i = 0; i < chosenPersons.size(); i++) {
                     Person p = chosenPersons.get(i);
-
                     // Getting the name of the person in the log (remove later):
                     Log.d("NAVN: ", p.getName());
                 }
+                textviewChosenContacts.setText(p.getName());
+
             }
 
         }
