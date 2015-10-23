@@ -34,7 +34,8 @@
     <string name="choose_receiver_head">Velg venn</string>
     <string name="ok">Ok</string>
     <string name="chosen_contacts_label">Valgte venner:</string>
-    <string name="messaged_changed">Meldingen har blitt endret!</string>
+    <string name="message_changed">Meldingen har blitt endret for disse vennene!</string>
+    <string name="no_contacts_chosen_error_message">Du har ikke valgt noen venner!</string>
 
     <!-- Validation messages Add new friend -->
     <string name="name_error_message">Navn må fylles inn!</string>
