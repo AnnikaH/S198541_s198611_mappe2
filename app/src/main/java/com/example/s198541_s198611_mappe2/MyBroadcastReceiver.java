@@ -13,7 +13,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             // runs when the phone starts up
         }*/
 
-        Toast.makeText(context, "Updating..", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.updating), Toast.LENGTH_SHORT).show();
 
         Intent i = new Intent(context, SetService.class);
         context.startService(i);

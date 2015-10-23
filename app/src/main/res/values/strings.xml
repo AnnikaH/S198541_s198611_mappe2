@@ -23,8 +23,9 @@
     <string name="label_phone_number">Phone number:</string>
     <string name="label_message">Message:</string>
     <string name="add">Add</string>
-
     <string name="person_added_message">was added!</string>
+
+    <string name="updating">Updating..</string>
 
     <!-- ................ XML Strings on Edit/New Message activity............-->
     <string name="choose_receiver">Choose friends</string>

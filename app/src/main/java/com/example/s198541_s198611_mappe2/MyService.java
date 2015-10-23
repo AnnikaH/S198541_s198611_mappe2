@@ -27,7 +27,7 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(getApplicationContext(), "In MyService", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "In MyService", Toast.LENGTH_SHORT).show();
 
         // Not run this if the app service (switchpreference) has been turned off:
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);

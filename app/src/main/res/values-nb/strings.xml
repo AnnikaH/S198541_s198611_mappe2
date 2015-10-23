@@ -21,8 +21,9 @@
     <string name="label_phone_number">Telefonnr:</string>
     <string name="label_message">Melding:</string>
     <string name="add">Legg til</string>
-
     <string name="person_added_message">ble lagt til!</string>
+
+    <string name="updating">Oppdaterer..</string>
 
     <!-- ............... XML for Endre/Ny melding aktiviteten ............ -->
 
