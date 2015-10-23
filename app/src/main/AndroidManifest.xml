@@ -12,7 +12,6 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
             android:name=".BirthdayServiceMainActivity"
@@ -84,7 +83,6 @@
             android:exported="true"
             android:readPermission="com.example.s198541_s198611_mappe2.permission"
             android:writePermission="com.example.s198541_s198611_mappe2.permission">
-
         </provider>
 
     </application>

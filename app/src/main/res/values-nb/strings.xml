@@ -2,11 +2,9 @@
 <resources>
     <string name="app_name">Bursdagstjenesten</string>
     <string name="settings">Innstillinger</string>
-    <string name="go_to_switch">Start/stopp SMS service ></string>
+    <string name="go_to_switch">Start/stopp SMS-tjenesten ></string>
 
     <string name="our_default_message">Gratulerer med dagen!</string>
-
-    <string name="text_search_field">Søk..</string>
 
     <string name="friends">Venner</string>
     <string name="edit_message">Endre melding</string>
@@ -17,7 +15,6 @@
     <string name="edit_friend">Endre venn</string>
 
     <string name="new_friend">Legg til en ny venn</string>
-    <string name="set_time">Sett tid for avsending ></string>
 
     <string name="label_name">Navn:</string>
     <string name="label_birthday">Bursdag:</string>
