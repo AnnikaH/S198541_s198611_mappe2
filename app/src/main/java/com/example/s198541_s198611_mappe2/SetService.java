@@ -45,9 +45,6 @@ public class SetService extends Service {
             PendingIntent pIntent = PendingIntent.getService(this, 0, i, 0);
             AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             alarm.cancel(pIntent);
-
-            Log.d("ALARM: ", "CANCELED");
-
             return super.onStartCommand(intent, flags, startId);
         }
 
