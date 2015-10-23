@@ -16,20 +16,9 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             // runs when the phone starts up
         }*/
 
-        Toast.makeText(context, "In BroadcastReceiver", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Updating..", Toast.LENGTH_SHORT).show();
 
-        // Checking if want to use service (send SMS) or not:
-
-        // Get switch status (on or off) (is placed in Settings) - only send broadcast if is turned on
-        // SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        //boolean serviceOn = sharedPrefs.getBoolean("turn_app_on_off", true);
-
-        //if(serviceOn) {
-            // Starting up the service:
-            Intent i = new Intent(context, SetService.class);
-            context.startService(i);
-        //}
-
-        // else do nothing
+        Intent i = new Intent(context, SetService.class);
+        context.startService(i);
     }
 }

@@ -14,7 +14,8 @@
         android:text="@string/result_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/result_header_padding_bottom"/>
+        android:paddingBottom="@dimen/result_header_padding_bottom"
+        android:textSize="@dimen/result_header_text_size" />
 
     <LinearLayout
         android:id="@+id/sms_information_layout"
