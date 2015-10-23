@@ -36,7 +36,8 @@
     <TextView
         android:id="@+id/text_view_for_showing_chosen_contacts"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/header_text_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +55,8 @@
             android:id="@+id/edit_message"
             android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"/>
 
         <LinearLayout
             android:layout_width="match_parent"

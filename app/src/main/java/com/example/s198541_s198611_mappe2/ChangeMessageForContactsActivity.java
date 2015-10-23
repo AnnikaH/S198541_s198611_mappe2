@@ -45,12 +45,14 @@ public class ChangeMessageForContactsActivity extends AppCompatActivity{
 
             // Later (not necessarily here) we can go through chosenPersons (ArrayList) like this:
             if(!chosenPersons.isEmpty()) {
+                String outstring ="";
                 for(int i = 0; i < chosenPersons.size(); i++) {
                     Person p = chosenPersons.get(i);
                     // Getting the name of the person in the log (remove later):
-                    Log.d("NAVN: ", p.getName());
+                   // Log.d("NAVN: ", p.getName());
+                    outstring+= p.getName()+", ";
                 }
-                textviewChosenContacts.setText(p.getName());
+                textviewChosenContacts.setText(outstring);
 
             }
 
