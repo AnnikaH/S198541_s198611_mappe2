@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.widget.EditText;
 
 import java.util.Locale;
 
@@ -28,6 +30,20 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
+
+            EditTextPreference messagePref = (EditTextPreference) findPreference("change_default_message");
+            messagePref.setDialogTitle("");
+            messagePref.setSummary(messagePref.getText());
+            messagePref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    // So that setSummary gets updated:
+                    Intent refresh = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(refresh);
+                    getActivity().finish();
+                    return true;
+                }
+            });
 
             final Preference switchPref = findPreference("turn_app_on_off");
             switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {

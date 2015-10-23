@@ -14,7 +14,8 @@
 
     <EditTextPreference android:title="@string/change_default_message_title"
         android:key="change_default_message"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textCursorDrawable="@drawable/custom_cursor_black" />
 
     <Preference android:title="@string/change_language_title"
         android:key="change_language" />

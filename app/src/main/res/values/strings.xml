@@ -58,6 +58,7 @@
     <string name="change_language_title">Language</string>
     <string name="time_picker_dialog_summary">Set time</string>
     <string name="set">Set</string>
+    <string name="hint_message">...</string>
 
     <!-- Result of notification -->
     <string name="notification_title">Birthday Service</string>
