@@ -91,6 +91,13 @@ public class NewContactActivity extends AppCompatActivity {
         finish();
     }
 
+    // OnClick cancel-button:
+    public void cancel(View view) {
+        Intent i = new Intent(this, ContactsActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
