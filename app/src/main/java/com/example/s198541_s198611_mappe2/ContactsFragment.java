@@ -27,18 +27,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,
-        SearchView.OnQueryTextListener {
+public class ContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     LoaderManager loaderManager;
     CursorLoader cursorLoader;
     SimpleCursorAdapter mAdapter;
     DBHandler dbHandler;
     String TAG = "LOADER";
-    SearchView searchView;
     ListView listView;
-
-    String mCurFilter;
 
     public ContactsFragment() {
 
@@ -55,7 +51,6 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         super.onActivityCreated(savedInstanceState);
 
         loaderManager = getActivity().getLoaderManager();
-
         dbHandler = new DBHandler(getActivity().getBaseContext());
 
         String[] uiBindFrom = { DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY };
@@ -65,10 +60,6 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
                 android.R.layout.simple_list_item_2, null, uiBindFrom, uiBindTo, 0);
         listView = (ListView) getActivity().findViewById(R.id.list_view);
         listView.setAdapter(mAdapter);
-
-        // ADDING:
-        listView.setTextFilterEnabled(true);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,29 +79,6 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
                 startActivity(i);
             }
         });
-
-        searchView = (SearchView) getActivity().findViewById(R.id.search_view);
-
-        int idSearchViewInputText = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        TextView searchViewText = (TextView) searchView.findViewById(idSearchViewInputText);
-        searchViewText.setHintTextColor(Color.WHITE);
-        searchViewText.setTextColor(Color.WHITE);
-
-        searchView.setOnQueryTextListener(this);
-
-        /*mAdapter.setFilterQueryProvider(new FilterQueryProvider() {
-            @Override
-            public Cursor runQuery(CharSequence constraint) {
-                String partial = constraint.toString();
-
-                String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
-                String[] selectionArgs = { String.valueOf(partial) };
-                cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
-                        DBHandler.KEY_NAME + " LIKE ?", selectionArgs, DBHandler.KEY_NAME);
-
-                return cursorLoader;
-            }
-        });*/
 
         loaderManager.initLoader(0, null, this);
     }
@@ -135,56 +103,5 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
             mAdapter.swapCursor(null);
         else
             Log.v(TAG, "OnLoadFinished: mAdapter is null");
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        /*String[] projection = {DBHandler.KEY_ID, DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
-        String[] selectionArgs = { String.valueOf(newText) };
-        cursorLoader = new CursorLoader(getActivity().getBaseContext(), PersonCP.CONTENT_URI, projection,
-                DBHandler.KEY_NAME + " LIKE ?", selectionArgs, DBHandler.KEY_NAME);
-
-        loaderManager.initLoader(0, null, this);*/
-
-        /*mAdapter.setFilterQueryProvider(new FilterQueryProvider() {
-            @Override
-            public Cursor runQuery(CharSequence constraint) {
-                dbHandler.getAllPersonsFromName(constraint.toString());
-                Cursor cursor = new CursorLoader();
-                return cursor;
-            }
-        });*/
-
-        //mAdapter.getFilter().filter(newText);
-
-        /*if(TextUtils.isEmpty(newText)) {
-            listView.clearTextFilter();
-        } else {
-            listView.setFilterText(newText);
-        }*/
-
-        String newFilter = !TextUtils.isEmpty(newText) ? newText : null;
-        // Don't do anything if the filter hasn't actually changed.
-        // Prevents restarting the loader when restoring state.
-        if (mCurFilter == null && newFilter == null) {
-            return true;
-        }
-
-        if (mCurFilter != null && mCurFilter.equals(newFilter)) {
-            return true;
-        }
-
-        mCurFilter = newFilter;
-
-        
-
-        getLoaderManager().restartLoader(0, null, this);
-        return true;
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        //onQueryTextChange(query);
-        return false;
     }
 }
