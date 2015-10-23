@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Bursdagstjenesten</string>
     <string name="settings">Innstillinger</string>
-    <string name="go_to_switch">Start/stopp SMS-tjenesten ></string>
+    <string name="go_to_switch"><u>Start/stopp SMS-tjenesten ></u></string>
 
     <string name="our_default_message">Gratulerer med dagen!</string>
 
