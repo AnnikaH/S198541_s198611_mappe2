@@ -8,32 +8,28 @@
     android:padding="@dimen/activity_horizontal_margin"
     android:background="@color/background_color" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <Button
+        android:text="@string/choose_receiver"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal" >
-        <!--<TextView
-            android:text="@string/choose_receiver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />-->
-        <Button
-            android:text="@string/choose_receiver"
-            android:textColor="@android:color/black"
-            android:textAllCaps="false"
-            android:layout_width="@dimen/choose_receiver_button_width"
-            android:layout_height="wrap_content"
-            android:onClick="OpenContact"
-            android:id="@+id/select_contact" />
-    </LinearLayout>
+        android:onClick="OpenContact"
+        android:id="@+id/select_contact"
+        android:background="@drawable/custom_button" />
+    <!-- android:layout_width="@dimen/choose_receiver_button_width" -->
 
     <TextView
+        android:paddingTop="@dimen/add_button_padding_top"
         android:layout_marginTop="@dimen/add_button_margin_top"
         android:text="@string/chosen_contacts_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <!-- Use this for printing out which contacts the user has chosen: -->
     <TextView
+        android:paddingTop="@dimen/add_button_padding_top"
         android:id="@+id/text_view_for_showing_chosen_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
