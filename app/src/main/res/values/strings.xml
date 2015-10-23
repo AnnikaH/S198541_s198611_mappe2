@@ -29,7 +29,7 @@
     <!-- ................ XML Strings on Edit/New Message activity............-->
     <string name="choose_receiver">Choose friends</string>
     <string name="save">Save</string>
-    <string name="choose_receiver_head">Choose Friend</string>
+    <string name="choose_receiver_head">Choose friends</string>
     <string name="ok">Ok</string>
     <string name="chosen_contacts_label">Chosen friends:</string>
     <string name="message_changed">Message has been changed for these friends!</string>

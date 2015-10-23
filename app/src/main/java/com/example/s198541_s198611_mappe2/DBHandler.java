@@ -180,6 +180,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NAME, person.getName());
         values.put(KEY_PH_NO, person.getPhoneNumber());
         values.put(KEY_BIRTHDAY, person.getBirthday() + "");
+        values.put(KEY_MESSAGE, person.getMessage());
         int changed = db.update(TABLE_PERSONS, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(person.get_ID()) });
         db.close();

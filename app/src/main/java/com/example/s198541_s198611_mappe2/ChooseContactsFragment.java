@@ -61,8 +61,8 @@ public class ChooseContactsFragment extends Fragment implements LoaderManager.Lo
 
         ids = new ArrayList<>();
 
-        String[] uiBindFrom = {DBHandler.KEY_NAME, DBHandler.KEY_BIRTHDAY};
-        int[] uiBindTo = {android.R.id.text1, android.R.id.text2};
+        String[] uiBindFrom = { DBHandler.KEY_NAME };
+        int[] uiBindTo = { android.R.id.text1 };
 
         mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(),
                 android.R.layout.simple_list_item_multiple_choice, null, uiBindFrom, uiBindTo, 0);

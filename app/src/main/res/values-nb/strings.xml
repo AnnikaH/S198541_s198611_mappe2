@@ -28,7 +28,7 @@
 
     <string name="choose_receiver">Velg venner</string>
     <string name="save">Lagre</string>
-    <string name="choose_receiver_head">Velg venn</string>
+    <string name="choose_receiver_head">Velg venner</string>
     <string name="ok">Ok</string>
     <string name="chosen_contacts_label">Valgte venner:</string>
     <string name="message_changed">Meldingen har blitt endret for disse vennene!</string>
